@@ -5,3 +5,5 @@ Cette application reçoit des données en provenance de différents capteur (ex,
 température, humidité, état d’un périphérique etc.)
 Elle affiche ces données, leur historique si nécessaire et propose des suggestions,
 émet des alertes à l’attention des utilisateurs.
+
+  1-Pour l'installation renommer htacces en .htacces
