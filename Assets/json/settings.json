@@ -1,0 +1,14 @@
+{
+    "accountinfo": {
+    "name" : "Jean Meteo",
+    "email": "jean-meteo@jmail.com",
+    "password" : "1234"
+    },
+    "settings": {
+    "night_mode" : "false, true",
+    "langage": "Français, English",
+    "unit" : "Celsius, Fahrenheit",
+    "contact_support": "hotsupport@hotcontact.com"
+    }
+}
+  

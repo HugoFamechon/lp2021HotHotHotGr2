@@ -1,0 +1,14 @@
+{
+    "inside": {
+      ">22": "Baissez le chauffage ou mettez la clim !",
+      ">50": "Appelez les pompiers ou arrêtez votre barbecue !",
+      "<0": "Canalisations gelées, appelez SOS plombier - et mettez un bonnet !",
+      "<12": "Montez le chauffage ou mettez un gros pull  !",
+      "normal": "Température adéquate"
+    },
+    "outside": {
+      ">35": "Hot Hot Hot !",
+      "<0": "Banquise en vue !",
+      "normal": "Température adéquate"
+    }
+}
