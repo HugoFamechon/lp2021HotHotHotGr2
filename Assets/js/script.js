@@ -28,14 +28,14 @@ let dataS;
 // ----------------------- //
 // Chargement des données  //
 // ----------------------- //
-let requestURL = "json/data.json";
+let requestURL = "../json/data.json";
 
 let request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
 
-request.onload = function () {
+request.onload = function() {
     let data = request.response;
     console.log(data);
 
@@ -48,7 +48,7 @@ request.onload = function () {
 // ----------------------- //
 
 let tabTwo = document.querySelector("#tabWeek");
-tabTwo.addEventListener("click", function (e) {
+tabTwo.addEventListener("click", function(e) {
     console.log(' Event clicked ! ');
     loadWeekData(e);
 });
@@ -62,10 +62,10 @@ bandeauOut.addEventListener("click", e => loadAlertOutside(e));
 
 
 let account = document.querySelector("#account");
-account.addEventListener("click", function (e) {
+account.addEventListener("click", function(e) {
     loadSettings(e);
     document.querySelector("#panel_above").style.display = "flex";
-    document.querySelector("#panel_nav").addEventListener("click", function (e) {
+    document.querySelector("#panel_nav").addEventListener("click", function(e) {
         document.querySelector("#panel_above").style.display = "none";
 
     }, { once: true });
@@ -185,7 +185,7 @@ function loadWeekData(e) {
         requestWeek.responseType = 'json';
         requestWeek.send();
 
-        requestWeek.onload = function () {
+        requestWeek.onload = function() {
             let responseData = requestWeek.response;
             dataW = responseData;
             let json = responseData['semaine'];
@@ -208,7 +208,7 @@ function loadWeekData(e) {
     }
 }
 
-function loadAlertOutside(e){
+function loadAlertOutside(e) {
 
     if (dataA == undefined) {
         let requestURL = "json/alerts.json";
@@ -218,7 +218,7 @@ function loadAlertOutside(e){
         requestAlert.responseType = 'json';
         requestAlert.send();
 
-        requestAlert.onload = function () {
+        requestAlert.onload = function() {
             let responseData = requestAlert.response;
             dataA = responseData;
             console.log('dataA :>> ', dataA);
@@ -254,7 +254,7 @@ function loadAlertInside(e) {
         requestAlert.responseType = 'json';
         requestAlert.send();
 
-        requestAlert.onload = function () {
+        requestAlert.onload = function() {
             let responseData = requestAlert.response;
             dataA = responseData;
 
@@ -298,7 +298,7 @@ function loadSettings(e) {
         requestSet.responseType = 'json';
         requestSet.send();
 
-        requestSet.onload = function () {
+        requestSet.onload = function() {
             let responseData = requestSet.response;
             dataS = responseData;
             console.log('dataS :>> ', dataS);
@@ -316,12 +316,12 @@ function loadSettings(e) {
             let unit = document.createElement('p');
             let contact_support = document.createElement('p');
 
-            name.textContent =  dataS['accountinfo']['name'];
+            name.textContent = dataS['accountinfo']['name'];
             email.textContent = dataS['accountinfo']['email'];
             password.textContent = dataS['accountinfo']['password'];
 
             night_mode.textContent = "Mode nuit :  " + dataS['settings']['night_mode'];
-            langage.textContent = "Langue :  " +  dataS['settings']['langage'];
+            langage.textContent = "Langue :  " + dataS['settings']['langage'];
             unit.textContent = "Unité :  " + dataS['settings']['unit'];
             contact_support.textContent = "Contact :  " + dataS['settings']['contact_support'];
 

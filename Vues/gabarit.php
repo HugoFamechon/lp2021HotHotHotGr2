@@ -17,7 +17,7 @@
         </section>
         <!-- Javascript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-        <script src="lib/notie.min.js"></script>
-        <script src="js/script.js"></script>
+        <script src="../Assets/lib/notie.min.js"></script>
+        <script src="../Assets/js/script.js"></script>
     </body>
 </html>
