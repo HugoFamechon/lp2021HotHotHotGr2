@@ -1,0 +1,14 @@
+{
+  "temperature": [
+    {
+      "current": 55,
+      "max": 25,
+      "min": 19
+    },
+    {
+      "current": 0,
+      "max": 47,
+      "min": 26
+    }
+  ]
+}
