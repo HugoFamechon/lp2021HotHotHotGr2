@@ -1,0 +1,102 @@
+
+header{
+  h1{
+    font-size: 5vmin;
+    color: white;
+    font-family: 'Nanum Gothic', sans-serif;
+  }
+}
+
+#groups {
+  width: 80%;
+  height: 50%;
+  margin: auto;
+  table {
+    width: 100%;
+    height: 100%;
+
+    tr {
+      width: 100%;
+      background-color: white;
+      th{
+        &:first-child{
+          background-color: #73B5D6;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+#formulaire{
+  width: 40vw;
+  text-align: center;
+  margin: auto;
+  font-size: 4vmin;
+  form{
+    input{
+      width: 20%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      font-size: 2vmin;
+
+    }
+    input[type="number"]{
+      width: 20%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      font-size: 2vmin;
+
+    }
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+body{
+  background-color: #409BC7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+section {
+  border-radius: 10vmin;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 75%;
+  width: 80%;
+}
+
+footer {
+  margin: auto;
+  a{
+    text-align: center;
+  }
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
