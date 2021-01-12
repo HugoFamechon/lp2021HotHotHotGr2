@@ -28,7 +28,7 @@ let dataS;
 // ----------------------- //
 // Chargement des données  //
 // ----------------------- //
-let requestURL = "../json/data.json";
+let requestURL = "Assets/json/data.json";
 
 let request = new XMLHttpRequest();
 request.open('GET', requestURL);
@@ -178,7 +178,7 @@ function loadWeekData(e) {
     console.log('dataW :>> ', dataW);
 
     if (dataW == undefined) {
-        let requestURL = "json/semaine.json";
+        let requestURL = "Assets/json/semaine.json";
 
         let requestWeek = new XMLHttpRequest();
         requestWeek.open('GET', requestURL);
@@ -211,7 +211,7 @@ function loadWeekData(e) {
 function loadAlertOutside(e) {
 
     if (dataA == undefined) {
-        let requestURL = "json/alerts.json";
+        let requestURL = "Assets/json/alerts.json";
 
         let requestAlert = new XMLHttpRequest();
         requestAlert.open('GET', requestURL);
@@ -247,7 +247,7 @@ function loadAlertOutside(e) {
 function loadAlertInside(e) {
 
     if (dataA == undefined) {
-        let requestURL = "json/alerts.json";
+        let requestURL = "Assets/json/alerts.json";
 
         let requestAlert = new XMLHttpRequest();
         requestAlert.open('GET', requestURL);
@@ -291,7 +291,7 @@ function loadSettings(e) {
 
     console.log('dataW :>> ', dataS);
     if (dataS == undefined) {
-        let requestURL = "json/settings.json";
+        let requestURL = "Assets/json/settings.json";
 
         let requestSet = new XMLHttpRequest();
         requestSet.open('GET', requestURL);
