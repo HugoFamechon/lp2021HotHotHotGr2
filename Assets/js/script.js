@@ -140,7 +140,7 @@ function processAlert(tempInterieur, tempExterieur) {
         pAlertOut.textContent = 'Hydratez-vous !';
     } else if (tempExterieur < 0) {
         console.log("Banquise en vue !");
-        pAlertOut.textContent = 'Une bonne journée pour coder ;D';
+        pAlertOut.textContent = 'Une bonne journée pour coder 😭';
 
     } else {
         pAlertOut.textContent = 'Température banale'
