@@ -1,4 +1,5 @@
-<main class="row">
+<?php Vue::montrer('standard/layout'); ?>
+<main id="home" class="row">
     <!-- Les différentes sections (Aujourdhui, Semaine, Graph) -->
     <!-- Aujourd'hui -->
     <section class="tabs col ">

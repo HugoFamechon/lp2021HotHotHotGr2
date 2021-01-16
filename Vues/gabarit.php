@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="../Assets/fonts/stylesheet.css">
     </head>
     <body class="container-fluid">
-        <?php Vue::montrer('standard/layout'); ?>
             <?php echo $A_vue['body'] ?>
         <?php Vue::montrer('standard/pied'); ?>
         <!-- Javascript -->
