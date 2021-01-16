@@ -28,19 +28,42 @@ let dataS;
 // ----------------------- //
 // Chargement des données  //
 // ----------------------- //
-let requestURL = "json/data.json";
 
-let request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
-
-request.onload = function () {
-    let data = request.response;
-    console.log(data);
-
-    processData(data);
+function getXMLHttpRequest() {
+    var xhr = null;
+    if (window.XMLHttpRequest || window.ActiveXObject) {
+        if (window.ActiveXObject) {
+            try {
+                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch (e) {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        } else {
+            xhr = new XMLHttpRequest();
+        }
+    } else {
+        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+        return null;
+    }
+    return xhr;
 }
+
+function LireFichierJSON() {
+    var xhr = getXMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            alerte = JSON.parse(xhr.responseText);
+
+        }
+    }
+    xhr.open("GET", "Assets/json/data.json", false);
+    xhr.send(null);
+
+}
+
+LireFichierJSON();
+processData(alerte);
 
 // ----------------------- //
 // Event pour charger les  //
@@ -48,7 +71,7 @@ request.onload = function () {
 // ----------------------- //
 
 let tabTwo = document.querySelector("#tabWeek");
-tabTwo.addEventListener("click", function (e) {
+tabTwo.addEventListener("click", function(e) {
     console.log(' Event clicked ! ');
     loadWeekData(e);
 });
@@ -62,10 +85,10 @@ bandeauOut.addEventListener("click", e => loadAlertOutside(e));
 
 
 let account = document.querySelector("#account");
-account.addEventListener("click", function (e) {
+account.addEventListener("click", function(e) {
     loadSettings(e);
     document.querySelector("#panel_above").style.display = "flex";
-    document.querySelector("#panel_nav").addEventListener("click", function (e) {
+    document.querySelector("#panel_nav").addEventListener("click", function(e) {
         document.querySelector("#panel_above").style.display = "none";
 
     }, { once: true });
@@ -117,7 +140,7 @@ function processAlert(tempInterieur, tempExterieur) {
         pAlertOut.textContent = 'Hydratez-vous !';
     } else if (tempExterieur < 0) {
         console.log("Banquise en vue !");
-        pAlertOut.textContent = 'Une bonne journée pour coder ;D';
+        pAlertOut.textContent = 'Une bonne journée pour coder 😭';
 
     } else {
         pAlertOut.textContent = 'Température banale'
@@ -178,14 +201,14 @@ function loadWeekData(e) {
     console.log('dataW :>> ', dataW);
 
     if (dataW == undefined) {
-        let requestURL = "json/semaine.json";
+        let requestURL = "Assets/json/semaine.json";
 
         let requestWeek = new XMLHttpRequest();
         requestWeek.open('GET', requestURL);
         requestWeek.responseType = 'json';
         requestWeek.send();
 
-        requestWeek.onload = function () {
+        requestWeek.onload = function() {
             let responseData = requestWeek.response;
             dataW = responseData;
             let json = responseData['semaine'];
@@ -208,23 +231,23 @@ function loadWeekData(e) {
     }
 }
 
-function loadAlertOutside(e){
+function loadAlertOutside(e) {
 
     if (dataA == undefined) {
-        let requestURL = "json/alerts.json";
+        let requestURL = "Assets/json/alerts.json";
 
         let requestAlert = new XMLHttpRequest();
         requestAlert.open('GET', requestURL);
         requestAlert.responseType = 'json';
         requestAlert.send();
 
-        requestAlert.onload = function () {
+        requestAlert.onload = function() {
             let responseData = requestAlert.response;
             dataA = responseData;
             console.log('dataA :>> ', dataA);
             if (tempOut > 35) {
                 notie.alert({ type: 3, text: 'Extérieur : ' + dataA['outside']['>35'], time: 4 });
-            } else if (tempIn < 0) {
+            } else if (tempOut < 0) {
                 notie.alert({ type: 2, text: 'Extérieur : ' + dataA['outside']['<0'], time: 4 });
             } else {
                 notie.alert({ type: 1, text: 'Extérieur : ' + dataA['outside']['normal'], time: 4 });
@@ -235,7 +258,7 @@ function loadAlertOutside(e){
     } else {
         if (tempOut > 35) {
             notie.alert({ type: 3, text: 'Extérieur : ' + dataA['outside']['>35'], time: 4 });
-        } else if (tempIn < 0) {
+        } else if (tempOut < 0) {
             notie.alert({ type: 2, text: 'Extérieur : ' + dataA['outside']['<0'], time: 4 });
         } else {
             notie.alert({ type: 1, text: 'Extérieur : ' + dataA['outside']['normal'], time: 4 });
@@ -247,14 +270,14 @@ function loadAlertOutside(e){
 function loadAlertInside(e) {
 
     if (dataA == undefined) {
-        let requestURL = "json/alerts.json";
+        let requestURL = "Assets/json/alerts.json";
 
         let requestAlert = new XMLHttpRequest();
         requestAlert.open('GET', requestURL);
         requestAlert.responseType = 'json';
         requestAlert.send();
 
-        requestAlert.onload = function () {
+        requestAlert.onload = function() {
             let responseData = requestAlert.response;
             dataA = responseData;
 
@@ -287,18 +310,19 @@ function loadAlertInside(e) {
     }
 }
 
+
 function loadSettings(e) {
 
     console.log('dataW :>> ', dataS);
     if (dataS == undefined) {
-        let requestURL = "json/settings.json";
+        let requestURL = "Assets/json/settings.json";
 
         let requestSet = new XMLHttpRequest();
         requestSet.open('GET', requestURL);
         requestSet.responseType = 'json';
         requestSet.send();
 
-        requestSet.onload = function () {
+        requestSet.onload = function() {
             let responseData = requestSet.response;
             dataS = responseData;
             console.log('dataS :>> ', dataS);
@@ -316,12 +340,12 @@ function loadSettings(e) {
             let unit = document.createElement('p');
             let contact_support = document.createElement('p');
 
-            name.textContent =  dataS['accountinfo']['name'];
+            name.textContent = dataS['accountinfo']['name'];
             email.textContent = dataS['accountinfo']['email'];
             password.textContent = dataS['accountinfo']['password'];
 
             night_mode.textContent = "Mode nuit :  " + dataS['settings']['night_mode'];
-            langage.textContent = "Langue :  " +  dataS['settings']['langage'];
+            langage.textContent = "Langue :  " + dataS['settings']['langage'];
             unit.textContent = "Unité :  " + dataS['settings']['unit'];
             contact_support.textContent = "Contact :  " + dataS['settings']['contact_support'];
 
