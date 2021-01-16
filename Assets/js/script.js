@@ -247,7 +247,7 @@ function loadAlertOutside(e) {
             console.log('dataA :>> ', dataA);
             if (tempOut > 35) {
                 notie.alert({ type: 3, text: 'Extérieur : ' + dataA['outside']['>35'], time: 4 });
-            } else if (tempIn < 0) {
+            } else if (tempOut < 0) {
                 notie.alert({ type: 2, text: 'Extérieur : ' + dataA['outside']['<0'], time: 4 });
             } else {
                 notie.alert({ type: 1, text: 'Extérieur : ' + dataA['outside']['normal'], time: 4 });
@@ -258,7 +258,7 @@ function loadAlertOutside(e) {
     } else {
         if (tempOut > 35) {
             notie.alert({ type: 3, text: 'Extérieur : ' + dataA['outside']['>35'], time: 4 });
-        } else if (tempIn < 0) {
+        } else if (tempOut < 0) {
             notie.alert({ type: 2, text: 'Extérieur : ' + dataA['outside']['<0'], time: 4 });
         } else {
             notie.alert({ type: 1, text: 'Extérieur : ' + dataA['outside']['normal'], time: 4 });

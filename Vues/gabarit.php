@@ -11,9 +11,7 @@
     </head>
     <body class="container-fluid">
         <?php Vue::montrer('standard/layout'); ?>
-        <section>
             <?php echo $A_vue['body'] ?>
-        </section>
         <?php Vue::montrer('standard/pied'); ?>
         <!-- Javascript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
