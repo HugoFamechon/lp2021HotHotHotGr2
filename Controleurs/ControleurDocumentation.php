@@ -8,4 +8,9 @@ final class ControleurDocumentation
         Vue::montrer('Documentation/documentation');
     }
 
+    public function frameworkAction()
+    {
+        Vue::montrer('Documentation/framework/autoload');
+    }
+
 }

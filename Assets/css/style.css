@@ -342,4 +342,8 @@ body {
   font-size: 30px;
 }
 
+.navDoc li {
+  margin-bottom: 0.5rem;
+}
+
 /*# sourceMappingURL=style.css.map */
