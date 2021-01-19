@@ -8,8 +8,9 @@ final class ControleurDocumentation
         Vue::montrer('Documentation/documentation');
     }
 
-    public function frameworkAction()
+    public function frameworkAction(array $A_get_parametres = null, array $A_post_parametres = null)
     {
+        var_dump($A_post_parametres);
         Vue::montrer('Documentation/framework/autoload');
     }
 
