@@ -7,4 +7,4 @@
         <section class="headerlink" id="account">
             <a href="#"><img src="../../Assets/img/account.png"></a>
         </section>
-    </nav>
+</nav>

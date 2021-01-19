@@ -1,0 +1,22 @@
+{
+
+  "DB_TABLES":[
+    "User",
+    "SensorData"
+  ],
+
+  "DB_TABLES_FIELDS": [
+     [
+       {
+         "FieldName":"UserID"
+         "FieldType":""
+       },"FirstName", "LastName", "eMail", "Password", "ProfilePic"],
+     ["Name"]
+  ],
+  "DB_TABLES_FIELDS_TYPES": [
+     ["FirstName", "LastName", "eMail", "Password", "ProfilePic"],
+     ["Name"]
+  ],
+
+
+}
