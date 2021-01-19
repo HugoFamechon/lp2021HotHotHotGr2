@@ -36,20 +36,11 @@ final class Controleur
             $A_urlDecortique[1] = $A_urlDecortique[1] . 'Action';
         }
 
-        if (empty($A_urlDecortique[2])) {
-            // L'action est vide ! On la valorise par défaut
-            $A_urlDecortique[2] = 'defautParam';
-        } else {
-            // On part du principe que toutes nos actions sont suffixées par 'Action'...à nous de le rajouter
-            $A_urlDecortique[2] = $A_urlDecortique[2] . '';
-        }
-
 
         // on dépile 2 fois de suite depuis le début, c'est à dire qu'on enlève de notre tableau le contrôleur et l'action
         // il ne reste donc que les éventuels parametres (si nous en avons)...
         $this->_A_urlDecortique['controleur'] = array_shift($A_urlDecortique); // on recupere le contrôleur
         $this->_A_urlDecortique['action']     = array_shift($A_urlDecortique); // puis l'action
-        $this->_A_urlDecortique['param']     = array_shift($A_urlDecortique); // puis l'action
 
         // ...on stocke ces éventuels parametres dans la variable d'instance qui leur est réservée
         $this->_A_urlParametres = $A_urlDecortique;
@@ -64,6 +55,7 @@ final class Controleur
 
     public function executer()
     {
+
         if (!class_exists($this->_A_urlDecortique['controleur'])) {
             throw new ControleurException($this->_A_urlDecortique['controleur'] . " n'est pas un controleur valide.");
         }
