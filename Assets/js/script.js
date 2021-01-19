@@ -4,7 +4,7 @@
 
 
 notie.setOptions({
-    alertTime: 2
+    alertTime: 0.1
 })
 
 function success() {
@@ -29,6 +29,7 @@ let dataS;
 // Chargement des données  //
 // ----------------------- //
 
+
 function getXMLHttpRequest() {
     var xhr = null;
     if (window.XMLHttpRequest || window.ActiveXObject) {
@@ -48,22 +49,22 @@ function getXMLHttpRequest() {
     return xhr;
 }
 
-function LireFichierJSON() {
+function LireFichierJSON(pathJson) {
     var xhr = getXMLHttpRequest();
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
             alerte = JSON.parse(xhr.responseText);
-
         }
     }
-    xhr.open("GET", "Assets/json/data.json", false);
+    xhr.open("GET", pathJson , false);
     xhr.send(null);
-
 }
 
-LireFichierJSON();
+let pathJsonData = "Assets/json/data.json";
+LireFichierJSON(pathJsonData);
 processData(alerte);
+
 
 // ----------------------- //
 // Event pour charger les  //
@@ -140,7 +141,7 @@ function processAlert(tempInterieur, tempExterieur) {
         pAlertOut.textContent = 'Hydratez-vous !';
     } else if (tempExterieur < 0) {
         console.log("Banquise en vue !");
-        pAlertOut.textContent = 'Une bonne journée pour coder 😭';
+        pAlertOut.textContent = 'Une bonne journée pour coder ;D';
 
     } else {
         pAlertOut.textContent = 'Température banale'
@@ -187,8 +188,6 @@ function processData(jsonObj) {
             divParentOut.append(tempMaxMinText)
         }
 
-
-
     }
 
 
@@ -201,32 +200,32 @@ function loadWeekData(e) {
     console.log('dataW :>> ', dataW);
 
     if (dataW == undefined) {
+
+        // let requestWeek = new XMLHttpRequest();
+        let requestWeek = getXMLHttpRequest();
+
         let requestURL = "Assets/json/semaine.json";
+        LireFichierJSON(requestURL);
+        console.log("alert", alerte);
 
-        let requestWeek = new XMLHttpRequest();
-        requestWeek.open('GET', requestURL);
-        requestWeek.responseType = 'json';
-        requestWeek.send();
+        dataW = alerte;
+        let json = alerte['semaine'];
+        console.log("alert", json);
 
-        requestWeek.onload = function() {
-            let responseData = requestWeek.response;
-            dataW = responseData;
-            let json = responseData['semaine'];
-            for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 5; i++) {
 
-                let tableInTemp = document.querySelector("#tableInTemp");
-                let tableOutTemp = document.querySelector("#tableOutTemp");
+            let tableInTemp = document.querySelector("#tableInTemp");
+            let tableOutTemp = document.querySelector("#tableOutTemp");
 
-                let tdInTemp = document.createElement('td');
-                let tdOutTemp = document.createElement('td');
+            let tdInTemp = document.createElement('td');
+            let tdOutTemp = document.createElement('td');
 
-                tdInTemp.textContent = json[i].in;
-                tdOutTemp.textContent = json[i].out;
+            tdInTemp.textContent = json[i].in;
+            tdOutTemp.textContent = json[i].out;
 
-                tableInTemp.appendChild(tdInTemp);
-                tableOutTemp.append(tdOutTemp)
+            tableInTemp.appendChild(tdInTemp);
+            tableOutTemp.append(tdOutTemp)
 
-            }
         }
     }
 }
@@ -234,130 +233,89 @@ function loadWeekData(e) {
 function loadAlertOutside(e) {
 
     if (dataA == undefined) {
+        let requestAlert = getXMLHttpRequest();
         let requestURL = "Assets/json/alerts.json";
-
-        let requestAlert = new XMLHttpRequest();
-        requestAlert.open('GET', requestURL);
-        requestAlert.responseType = 'json';
-        requestAlert.send();
-
-        requestAlert.onload = function() {
-            let responseData = requestAlert.response;
-            dataA = responseData;
-            console.log('dataA :>> ', dataA);
-            if (tempOut > 35) {
-                notie.alert({ type: 3, text: 'Extérieur : ' + dataA['outside']['>35'], time: 4 });
-            } else if (tempOut < 0) {
-                notie.alert({ type: 2, text: 'Extérieur : ' + dataA['outside']['<0'], time: 4 });
-            } else {
-                notie.alert({ type: 1, text: 'Extérieur : ' + dataA['outside']['normal'], time: 4 });
-            }
-        }
-
-
-    } else {
-        if (tempOut > 35) {
-            notie.alert({ type: 3, text: 'Extérieur : ' + dataA['outside']['>35'], time: 4 });
-        } else if (tempOut < 0) {
-            notie.alert({ type: 2, text: 'Extérieur : ' + dataA['outside']['<0'], time: 4 });
-        } else {
-            notie.alert({ type: 1, text: 'Extérieur : ' + dataA['outside']['normal'], time: 4 });
-        }
+        LireFichierJSON(requestURL);
+        dataA = alerte;
+        console.log('dataA :>> ', dataA);
     }
+
+    if (tempOut > 35) {
+        notie.alert({ type: 3, text: 'Extérieur : ' + dataA['outside']['>35'], time: 4 });
+    } else if (tempOut < 0) {
+        notie.alert({ type: 2, text: 'Extérieur : ' + dataA['outside']['<0'], time: 4 });
+    } else {
+        notie.alert({ type: 1, text: 'Extérieur : ' + dataA['outside']['normal'], time: 4 });
+    }
+
 }
 
 
 function loadAlertInside(e) {
 
     if (dataA == undefined) {
+
+        let requestAlert = getXMLHttpRequest();
         let requestURL = "Assets/json/alerts.json";
+        LireFichierJSON(requestURL);
+        dataA = alerte;
+    }
 
-        let requestAlert = new XMLHttpRequest();
-        requestAlert.open('GET', requestURL);
-        requestAlert.responseType = 'json';
-        requestAlert.send();
-
-        requestAlert.onload = function() {
-            let responseData = requestAlert.response;
-            dataA = responseData;
-
-            if (tempIn > 50) {
-                notie.alert({ type: 3, text: 'Intérieur : ' + dataA['inside']['>50'], time: 4 });
-            } else if (tempIn > 22) {
-                notie.alert({ type: 2, text: 'Intérieur : ' + dataA['inside']['>22'], time: 4 });
-            } else if (tempIn < 0) {
-                notie.alert({ type: 4, text: 'Intérieur : ' + dataA['inside']['<0'], time: 4 });
-            } else if (tempIn < 12) {
-                notie.alert({ type: 4, text: 'Intérieur : ' + dataA['inside']['<12'], time: 4 });
-            } else {
-                notie.alert({ type: 1, text: 'Intérieur : ' + dataA['inside']['normal'], time: 4 });
-            }
-        }
-
-
+    if (tempIn > 50) {
+        notie.alert({ type: 3, text: 'Intérieur : ' + dataA['inside']['>50'], time: 4 });
+    } else if (tempIn > 22) {
+        notie.alert({ type: 2, text: 'Intérieur : ' + dataA['inside']['>22'], time: 4 });
+    } else if (tempIn < 0) {
+        notie.alert({ type: 4, text: 'Intérieur : ' + dataA['inside']['<0'], time: 4 });
+    } else if (tempIn < 12) {
+        notie.alert({ type: 4, text: 'Intérieur : ' + dataA['inside']['<12'], time: 4 });
     } else {
-        if (tempIn > 50) {
-            notie.alert({ type: 3, text: 'Intérieur : ' + dataA['inside']['>50'], time: 4 });
-        } else if (tempIn > 22) {
-            notie.alert({ type: 2, text: 'Intérieur : ' + dataA['inside']['>22'], time: 4 });
-        } else if (tempIn < 0) {
-            notie.alert({ type: 4, text: 'Intérieur : ' + dataA['inside']['<0'], time: 4 });
-        } else if (tempIn < 12) {
-            notie.alert({ type: 4, text: 'Intérieur : ' + dataA['inside']['<12'], time: 4 });
-        } else {
-            notie.alert({ type: 1, text: 'Intérieur : ' + dataA['inside']['normal'], time: 4 });
-        }
+        notie.alert({ type: 1, text: 'Intérieur : ' + dataA['inside']['normal'], time: 4 });
     }
 }
-
 
 function loadSettings(e) {
 
     console.log('dataW :>> ', dataS);
     if (dataS == undefined) {
+
         let requestURL = "Assets/json/settings.json";
+        let requestSet = getXMLHttpRequest();
+        LireFichierJSON(requestURL);
 
-        let requestSet = new XMLHttpRequest();
-        requestSet.open('GET', requestURL);
-        requestSet.responseType = 'json';
-        requestSet.send();
-
-        requestSet.onload = function() {
-            let responseData = requestSet.response;
-            dataS = responseData;
-            console.log('dataS :>> ', dataS);
+        dataS = alerte;
+        console.log('dataS :>> ', dataS);
 
 
-            let divAccount = document.querySelector(".settings_panel :nth-child(2)");
-            let divSettings = document.querySelector(".settings_panel :nth-child(1)");
+        let divAccount = document.querySelector(".settings_panel :nth-child(2)");
+        let divSettings = document.querySelector(".settings_panel :nth-child(1)");
 
-            let name = document.createElement('p');
-            let email = document.createElement('p');
-            let password = document.createElement('p');
+        let name = document.createElement('p');
+        let email = document.createElement('p');
+        let password = document.createElement('p');
 
-            let night_mode = document.createElement('p');
-            let langage = document.createElement('p');
-            let unit = document.createElement('p');
-            let contact_support = document.createElement('p');
+        let night_mode = document.createElement('p');
+        let langage = document.createElement('p');
+        let unit = document.createElement('p');
+        let contact_support = document.createElement('p');
 
-            name.textContent = dataS['accountinfo']['name'];
-            email.textContent = dataS['accountinfo']['email'];
-            password.textContent = dataS['accountinfo']['password'];
+        name.textContent = dataS['accountinfo']['name'];
+        email.textContent = dataS['accountinfo']['email'];
+        password.textContent = dataS['accountinfo']['password'];
 
-            night_mode.textContent = "Mode nuit :  " + dataS['settings']['night_mode'];
-            langage.textContent = "Langue :  " + dataS['settings']['langage'];
-            unit.textContent = "Unité :  " + dataS['settings']['unit'];
-            contact_support.textContent = "Contact :  " + dataS['settings']['contact_support'];
+        night_mode.textContent = "Mode nuit :  " + dataS['settings']['night_mode'];
+        langage.textContent = "Langue :  " + dataS['settings']['langage'];
+        unit.textContent = "Unité :  " + dataS['settings']['unit'];
+        contact_support.textContent = "Contact :  " + dataS['settings']['contact_support'];
 
-            divAccount.appendChild(name);
-            divAccount.appendChild(email);
-            divAccount.appendChild(password);
+        divAccount.appendChild(name);
+        divAccount.appendChild(email);
+        divAccount.appendChild(password);
 
-            divSettings.appendChild(night_mode);
-            divSettings.appendChild(langage);
-            divSettings.appendChild(unit);
-            divSettings.appendChild(contact_support);
+        divSettings.appendChild(night_mode);
+        divSettings.appendChild(langage);
+        divSettings.appendChild(unit);
+        divSettings.appendChild(contact_support);
 
-        }
     }
 }

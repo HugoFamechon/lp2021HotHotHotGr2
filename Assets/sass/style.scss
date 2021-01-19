@@ -23,7 +23,6 @@ body {
     line-height: 1.5;
     max-width: 60rem;
     margin: 0 0;
-    font-size: 112%;
 }
 
 
@@ -184,7 +183,7 @@ body {
     }
     #thirdTab {
         position: relative;
-        right: -57%;
+        right: -58.5%;
     }
     @media (max-width: 992px) {
         h4 {
@@ -246,7 +245,7 @@ body {
         }
         .outside {
             height: 50% !important;
-            max-width: 50%;
+            max-width: 100%;
             flex-direction: row;
             flex-wrap: wrap;
         }

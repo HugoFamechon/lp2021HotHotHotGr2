@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a4d1dd2-b2f9-4a1a-a549-770e92436db1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/js/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/js/script.js" afterDir="false" />
-    </list>
+    <list default="true" id="6a4d1dd2-b2f9-4a1a-a549-770e92436db1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,6 +48,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -73,6 +70,9 @@
       <workItem from="1610439613157" duration="1049000" />
       <workItem from="1610444126882" duration="425000" />
       <workItem from="1610444610035" duration="990000" />
+      <workItem from="1611048506364" duration="745000" />
+      <workItem from="1611049527485" duration="20000" />
+      <workItem from="1611049561555" duration="749000" />
     </task>
     <servers />
   </component>
