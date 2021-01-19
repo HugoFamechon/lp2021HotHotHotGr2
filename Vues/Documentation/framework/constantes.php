@@ -1,4 +1,4 @@
-<section class="chargementAuto">
+<section class="constantes">
     <h1>Constantes.php</h1>
     <img src="../../../Assets/img/constantes_Chemins.PNG">
     <p>On crée des constantes de nos différents chemins</p>
