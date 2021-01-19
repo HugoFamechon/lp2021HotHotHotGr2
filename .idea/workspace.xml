@@ -23,6 +23,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Database.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Noyau/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Noyau/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vues/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/gabarit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +79,8 @@
       <workItem from="1610444610035" duration="990000" />
       <workItem from="1610813672249" duration="4961000" />
       <workItem from="1610893710687" duration="2200000" />
-      <workItem from="1611040630595" duration="14434000" />
+      <workItem from="1611040630595" duration="14618000" />
+      <workItem from="1611077530946" duration="10935000" />
     </task>
     <servers />
   </component>
@@ -113,5 +116,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1611045056955" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1611087916254">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1611087916254" />
   </component>
 </project>

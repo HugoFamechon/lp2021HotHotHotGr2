@@ -1,6 +1,6 @@
 {
   "DB_TABLES": [
-    "User",
+    "UserTable",
     "Sensors",
     "SensorsData"
   ],
@@ -68,21 +68,21 @@
       {
         "FieldName": "UserID",
         "FieldType": "INT NOT NULL",
-        "PK": false,
+        "PK": true,
         "ForeignKeyTable": "User",
         "ForeignKey": "UserID"
       },
       {
         "FieldName": "SensorID",
         "FieldType": "INT NOT NULL",
-        "PK": false,
+        "PK": true,
         "ForeignKeyTable": "Sensors",
         "ForeignKey": "SensorID"
       },
       {
         "FieldName": "Date",
         "FieldType": "DATE NOT NULL",
-        "PK": false
+        "PK": true
       },
       {
         "FieldName": "Value",

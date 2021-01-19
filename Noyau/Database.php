@@ -14,6 +14,9 @@ final class Database {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES   => false,
     ];
+    private $DB_tables;
+    private $DB_tableFields;
+    private $AutoIncrementPrimaryKeys;
 
 
     public function __construct(){
@@ -25,15 +28,16 @@ final class Database {
         $this->charset = $ini_file['charset'];
         $this->dsn = "mysql:host=$this->host";
 
+        $this->AutoIncrementPrimaryKeys = [];
 
         try {
             $this->pdo = new PDO($this->dsn, $this->user, $this->pass, $this->options);
             $this->createDB();
             $this->CreateTables();
-        } catch (\PDOException $e) {
-            throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        } catch (PDOException $e) {
+            var_dump($e->getMessage());
+            throw new PDOException($e->getMessage(), (int)$e->getCode());
         }
-        var_dump($this->pdo);
     }
 
     public function createDB() {
@@ -44,8 +48,10 @@ final class Database {
     }
 
     public function createTables() {
-        $json_file = json_decode("./Database.json");
+        $json_file = json_decode(file_get_contents("./Database.json"), true);
         $i = 0;
+        $this->DB_tables = $json_file["DB_TABLES"];
+        $this->DB_tableFields = $json_file["DB_TABLES_FIELDS"];
         foreach ($json_file["DB_TABLES"] as $tables){
             $this->CreateTable($i, $tables, $json_file["DB_TABLES_FIELDS"]);
             $i++;
@@ -65,7 +71,6 @@ final class Database {
 
         //On construit la creation de la table avec les champs
         foreach ($Fields[$index] as $Field) {
-            echo $Field["FieldName"];
             $ParsedFields = $ParsedFields . $Field["FieldName"] . " " . $Field["FieldType"] . ",";
         }
 
@@ -73,18 +78,26 @@ final class Database {
         // on cherche le nombre de FK pour savoir comment on ecris la contrainte FOREIGN KEY
         foreach ($Fields[$index] as $Field) {
             if ($Field["PK"]) {
+                array_push($this->AutoIncrementPrimaryKeys, $TableName . "." . $Field["FieldName"]);
                $nbPK++;
                $Constraint_Name = $Constraint_Name . "_" . $Field["FieldName"];
             }
 
-            if ($Field["ForeignKeyTable"]) {
+            if (isset($Field["ForeignKeyTable"]) && $Field["ForeignKeyTable"]) {
                $nbFK++;
             }
         }
 
         if($nbPK > 1)
         {
-            $PK = "CONSTRAINTS " . $Constraint_Name . " PRIMARY KEY (";
+            $PK = "CONSTRAINT " . $Constraint_Name . " PRIMARY KEY (";
+        }
+
+//        echo "<p>nbPK = $nbPK </p>";
+//        echo "<p>nbFK = $nbFK </p>";
+
+        if ($nbPK === 0) {
+            throw new Exception('Une table doit forcement contenir au moins une clé primaire ! / A table must contain at least one Primary Key !');
         }
 
         //on construit la contrainte de PK
@@ -96,7 +109,7 @@ final class Database {
                 {
                     $PK = $PK . $Field["FieldName"];
                 }
-                else if($nbPKCount === $nbPK)
+                else if($nbPKCount === $nbPK-1)
                 {
                     $PK = $PK . "," . $Field["FieldName"] . ")";
                 }
@@ -110,28 +123,80 @@ final class Database {
             }
         }
         //on rajoute la virgule s'il y a des clés étrangères
-        if ($nbFK > 0)
+        if ($nbFK > 0 && $nbPK > 0)
             $PK = $PK . ",";
+
 
         //on construit la contrainte de FK
         foreach ($Fields[$index] as $Field) {
             if(isset($Field["ForeignKeyTable"]))
             {
-                if($nbFKCount == $nbFK){
+                if($nbFKCount === $nbFK-1){
                     $FK = $FK . "FOREIGN KEY (" . $Field["ForeignKey"] . ") REFERENCES " . $Field["ForeignKeyTable"] . "(" . $Field["ForeignKey"] .")";
                 } else {
-                    $FK = $FK . "FOREIGN KEY (" . $Field["ForeignKey"] . ") REFERENCES " . $Field["ForeignKeyTable"] . "(" . $Field["ForeignKey"] ."),";
+                    $FK = $FK . "FOREIGN KEY (" . $Field["ForeignKey"] . ") REFERENCES " . $Field["ForeignKeyTable"] . "(" . $Field["ForeignKey"] ."), ";
                 }
                 $nbFKCount++;
             }
         }
-        $this->pdo->exec(
-            "CREATE TABLE IF NOT EXISTS `$this->db`.`$TableName`(`$ParsedFields`.`$PK`.`$FK`);
-        ");
+        $request = "CREATE TABLE IF NOT EXISTS " . "$this->db." . $TableName . "(" . $ParsedFields . $PK . $FK . ");";
+//        echo "<p>$request</p>";
+        $this->pdo->exec($request);
     }
 
-    public static function echoString($myString) {
-        echo $myString;
+    public function addRow($tableName, array $Fields) {
+        if (in_array($tableName, $this->DB_tables)) {
+            try {
+                $request = "INSERT INTO $this->db.$tableName (";
+
+                $iterations = count($this->DB_tableFields[array_search($tableName, $this->DB_tables)]);
+
+                // Pour ne pas qu'il prennent en compte les clès en auto increment
+                $onlyOnce = true;
+                foreach ($this->DB_tableFields[array_search($tableName, $this->DB_tables)] as $fieldName) {
+                    if (in_array($this->AutoIncrementPrimaryKeys, $fieldName) && $onlyOnce) {
+                        $iterations--;
+                    }
+                }
+
+                echo "<p>Iteration = $iterations</p>";
+                $i = 0;
+                foreach ($this->DB_tableFields[array_search($tableName, $this->DB_tables)] as $fieldName) {
+                    if(!in_array($this->AutoIncrementPrimaryKeys, $fieldName)) {
+                        if ($i === $iterations)
+                        {
+                            $request = $request . $fieldName["FieldName"];
+                        } else {
+                            $request = $request . $fieldName["FieldName"] . ",";
+                        }
+                    }
+                    $i++;
+                }
+
+                $request = $request . ") VALUES (";
+                $iterations = count($Fields);
+                $i = 0;
+                foreach ($Fields as $field) {
+                    if ($i === $iterations-1)
+                    {
+                        $request = $request . "'$field'";
+                    } else {
+                        $request = $request . "'$field'" . ",";
+                    }
+                    $i++;
+                }
+
+                $request = $request . ");";
+                echo "<p>$request</p>";
+                $this->pdo->exec($request);
+            } catch (PDOException $e) {
+                var_dump($e->getMessage());
+                throw new PDOException($e->getMessage(), (int)$e->getCode());
+            }
+        } else {
+            throw new Exception("IL N'EXISTE PAS DE TABLE $tableName DANS LA BDD");
+        }
+
     }
 
 
