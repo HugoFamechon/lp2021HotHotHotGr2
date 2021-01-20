@@ -25,6 +25,7 @@
       <change beforePath="$PROJECT_DIR$/Noyau/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Noyau/Database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vues/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/gabarit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +57,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
