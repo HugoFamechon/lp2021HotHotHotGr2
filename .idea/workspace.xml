@@ -21,6 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6a4d1dd2-b2f9-4a1a-a549-770e92436db1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Noyau/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Noyau/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vues/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/gabarit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +48,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../PhpstormProjects/LP2021Project" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -52,6 +56,8 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -59,7 +65,7 @@
       <recent name="D:\wamp64\www\phpTD\lp2021HotHotHotGr2\Controleurs" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -73,15 +79,15 @@
       <workItem from="1610439613157" duration="1049000" />
       <workItem from="1610444126882" duration="425000" />
       <workItem from="1610444610035" duration="990000" />
-      <workItem from="1611048506364" duration="745000" />
-      <workItem from="1611049527485" duration="20000" />
-      <workItem from="1611049561555" duration="1440000" />
-      <workItem from="1611134486970" duration="36000" />
+      <workItem from="1610813672249" duration="4961000" />
+      <workItem from="1610893710687" duration="2200000" />
+      <workItem from="1611040630595" duration="14618000" />
+      <workItem from="1611077530946" duration="10935000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -94,5 +100,27 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="336" y="361" key="#SQL_Dialects" timestamp="1610895671821">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="336" y="361" key="#SQL_Dialects/0.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1610895671821" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1610469438356">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1610469438356" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1610813813038">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1610813813038" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1611045056955">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1611045056955" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1611087916254">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1611087916254" />
   </component>
 </project>

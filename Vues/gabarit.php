@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="../Assets/css/notie.min.css">
         <link rel="stylesheet" href="../Assets/css/style.css">
         <link rel="stylesheet" href="../Assets/fonts/stylesheet.css">
+        <link rel="shortcut icon" href="https://icons.iconarchive.com/icons/iconsmind/outline/512/Temperature-icon.png" type="image/x-icon">
     </head>
     <body class="container-fluid">
             <?php echo $A_vue['body'] ?>
