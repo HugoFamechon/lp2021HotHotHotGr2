@@ -1,5 +1,6 @@
 <section class="constantes">
     <h1>Constantes.php</h1>
+    <p>On se trouve dans la classe Constantes</p>
     <img src="../../../Assets/img/constantes_Chemins.PNG">
     <p>On crée des constantes de nos différents chemins</p>
     <img src="../../../Assets/img/contante_racine.png">
