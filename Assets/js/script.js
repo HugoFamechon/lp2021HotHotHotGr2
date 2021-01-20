@@ -12,8 +12,6 @@ function success() {
 }
 
 
-
-
 let tempIn;
 let tempOut;
 
@@ -64,7 +62,6 @@ function LireFichierJSON(pathJson) {
 let pathJsonData = "Assets/json/data.json";
 LireFichierJSON(pathJsonData);
 processData(alerte);
-
 
 // ----------------------- //
 // Event pour charger les  //
@@ -141,7 +138,7 @@ function processAlert(tempInterieur, tempExterieur) {
         pAlertOut.textContent = 'Hydratez-vous !';
     } else if (tempExterieur < 0) {
         console.log("Banquise en vue !");
-        pAlertOut.textContent = 'Une bonne journée pour coder ;D';
+        pAlertOut.textContent = 'Une bonne journée pour coder 😭';
 
     } else {
         pAlertOut.textContent = 'Température banale'
@@ -152,9 +149,6 @@ function processAlert(tempInterieur, tempExterieur) {
 
 
 function processData(jsonObj) {
-
-
-
 
     tempIn = jsonObj['temperature'][0]['current'];
     tempOut = jsonObj['temperature'][1]['current'];
