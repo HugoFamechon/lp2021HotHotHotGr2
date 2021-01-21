@@ -25,8 +25,8 @@ body {
 }
 
 /**
- * Main navigation
- */
+* Main navigation
+*/
 #mainNav {
   display: flex;
   justify-content: space-between;
@@ -55,8 +55,8 @@ body {
 }
 
 /**
- * Tabs
- */
+* Tabs
+*/
 #home .tabs {
   display: flex;
   flex-wrap: wrap;
@@ -339,6 +339,18 @@ body {
 .titlePanel {
   font-weight: 900;
   font-size: 30px;
+}
+
+.navDoc li {
+  margin-bottom: 0.5rem;
+}
+
+.constantes h1 {
+  text-align: center;
+}
+.constantes img {
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=style.css.map */
