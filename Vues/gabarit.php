@@ -4,9 +4,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Project HotHotHot</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">        <link rel="stylesheet" href="../Assets/css/notie.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="../Assets/css/notie.min.css">
         <link rel="stylesheet" href="../Assets/css/style.css">
         <link rel="stylesheet" href="../Assets/fonts/stylesheet.css">
+        <link rel="shortcut icon" href="https://icons.iconarchive.com/icons/iconsmind/outline/512/Temperature-icon.png" type="image/x-icon">
     </head>
     <body class="container-fluid">
             <?php echo $A_vue['body'] ?>

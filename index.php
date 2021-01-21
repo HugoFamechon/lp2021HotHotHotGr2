@@ -22,7 +22,8 @@
     $A_postParams = isset($_POST) ? $_POST : null;
 
     Vue::ouvrirTampon(); // on ouvre le tampon d'affichage, les contrôleurs qui appellent des vues les mettront dedans
-    //$DB = new Database();
+    $DB = new Database();
+    $DB->addRow("UserTable", ["NomTest", "PrenomTest", "EmailTest", "PwdTest", "LinkToProfilePicTest"]);
     try
     {
         $O_controleur = new Controleur($S_urlADecortiquer, $A_postParams);
