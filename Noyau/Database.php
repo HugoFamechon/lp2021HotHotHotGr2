@@ -159,7 +159,7 @@ final class Database {
                     }
                 }
 
-                echo "<p>Iteration = $iterations</p>";
+//                echo "<p>Iteration = $iterations</p>";
                 $i = 0;
                 foreach ($this->DB_tableFields[array_search($tableName, $this->DB_tables)] as $fieldName) {
                     if(!in_array($this->AutoIncrementPrimaryKeys, $fieldName)) {
@@ -187,7 +187,7 @@ final class Database {
                 }
 
                 $request = $request . ");";
-                echo "<p>$request</p>";
+//                echo "<p>$request</p>";
                 $this->pdo->exec($request);
             } catch (PDOException $e) {
                 var_dump($e->getMessage());
