@@ -69,7 +69,7 @@
         "FieldName": "UserID",
         "FieldType": "INT NOT NULL",
         "PK": true,
-        "ForeignKeyTable": "User",
+        "ForeignKeyTable": "UserTable",
         "ForeignKey": "UserID"
       },
       {
@@ -80,8 +80,8 @@
         "ForeignKey": "SensorID"
       },
       {
-        "FieldName": "Date",
-        "FieldType": "DATE NOT NULL",
+        "FieldName": "Timestamp",
+        "FieldType": "int NOT NULL",
         "PK": true
       },
       {

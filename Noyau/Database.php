@@ -41,6 +41,10 @@ final class Database {
     }
 
     public function createDB() {
+//        echo "CREATE DATABASE IF NOT EXISTS `$this->db`;
+//                CREATE USER '$this->user'@'$this->host' IDENTIFIED BY '$this->pass';
+//                GRANT ALL ON `$this->db`.* TO '$this->user'@'$this->host';
+//                FLUSH PRIVILEGES;";
         $this->pdo->exec("CREATE DATABASE IF NOT EXISTS `$this->db`;
                 CREATE USER '$this->user'@'$this->host' IDENTIFIED BY '$this->pass';
                 GRANT ALL ON `$this->db`.* TO '$this->user'@'$this->host';
@@ -132,14 +136,15 @@ final class Database {
             if(isset($Field["ForeignKeyTable"]))
             {
                 if($nbFKCount === $nbFK-1){
-                    $FK = $FK . "FOREIGN KEY (" . $Field["ForeignKey"] . ") REFERENCES " . $Field["ForeignKeyTable"] . "(" . $Field["ForeignKey"] .")";
+                    $FK = $FK . "CONSTRAINT FK_". $TableName . "_" . $Field["ForeignKeyTable"] . "_" . $Field["ForeignKey"] . " FOREIGN KEY (" . $Field["ForeignKey"] . ") REFERENCES " . $Field["ForeignKeyTable"] . "(" . $Field["ForeignKey"] .")";
                 } else {
-                    $FK = $FK . "FOREIGN KEY (" . $Field["ForeignKey"] . ") REFERENCES " . $Field["ForeignKeyTable"] . "(" . $Field["ForeignKey"] ."), ";
+                    $FK = $FK . "CONSTRAINT FK_". $TableName . "_" . $Field["ForeignKeyTable"] . "_" . $Field["ForeignKey"] . " FOREIGN KEY (" . $Field["ForeignKey"] . ") REFERENCES " . $Field["ForeignKeyTable"] . "(" . $Field["ForeignKey"] ."), ";
                 }
                 $nbFKCount++;
             }
         }
-        $request = "CREATE TABLE IF NOT EXISTS " . "$this->db." . $TableName . "(" . $ParsedFields . $PK . $FK . ");";
+
+        $request = "CREATE TABLE IF NOT EXISTS " . "$this->db." . $TableName . "(" . $ParsedFields . $PK . $FK . ") ENGINE=InnoDB;";
 //        echo "<p>$request</p>";
         $this->pdo->exec($request);
     }
