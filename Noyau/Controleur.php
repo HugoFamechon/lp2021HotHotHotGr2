@@ -55,6 +55,7 @@ final class Controleur
 
     public function executer()
     {
+
         if (!class_exists($this->_A_urlDecortique['controleur'])) {
             throw new ControleurException($this->_A_urlDecortique['controleur'] . " n'est pas un controleur valide.");
         }
