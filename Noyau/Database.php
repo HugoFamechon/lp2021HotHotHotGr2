@@ -204,5 +204,34 @@ final class Database {
 
     }
 
+    public function SelectQuery($tableName, array $Fields) {
+        // SELECT $FIELDS FROM $TABLENAME
+        if (in_array($tableName, $this->DB_tables)) {
+            try {
+
+                $request = "SELECT ";
+                $i = 0;
+                $length = count($Fields);
+                foreach ($Fields as $field) {
+                    if ($i == $length - 1) {
+                        $request = $request . $field . " ";
+                    } else {
+                        $request = $request . $field . ",";
+                    }
+                    $i++;
+                }
+                $request = $request . "FROM $this->db.$tableName;";
+//                echo "<p>$request</p>";
+                return $this->pdo->query($request);
+            } catch (PDOException $e) {
+                var_dump($e->getMessage());
+                throw new PDOException($e->getMessage(), (int)$e->getCode());
+            }
+        } else {
+            throw new Exception("IL N'EXISTE PAS DE TABLE $tableName DANS LA BDD");
+        }
+
+    }
+
 
 }
