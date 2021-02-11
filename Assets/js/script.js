@@ -55,7 +55,7 @@ function LireFichierJSON(pathJson) {
             alerte = JSON.parse(xhr.responseText);
         }
     }
-    xhr.open("GET", pathJson , false);
+    xhr.open("GET", pathJson, false);
     xhr.send(null);
 }
 
@@ -82,15 +82,15 @@ let bandeauOut = document.querySelector(".bandeauout");
 bandeauOut.addEventListener("click", e => loadAlertOutside(e));
 
 
-let account = document.querySelector("#account");
-account.addEventListener("click", function(e) {
-    loadSettings(e);
-    document.querySelector("#panel_above").style.display = "flex";
-    document.querySelector("#panel_nav").addEventListener("click", function(e) {
-        document.querySelector("#panel_above").style.display = "none";
+// let account = document.querySelector("#account");
+// account.addEventListener("click", function(e) {
+//     loadSettings(e);
+//     document.querySelector("#panel_above").style.display = "flex";
+//     document.querySelector("#panel_nav").addEventListener("click", function(e) {
+//         document.querySelector("#panel_above").style.display = "none";
 
-    }, { once: true });
-});
+//     }, { once: true });
+// });
 
 
 

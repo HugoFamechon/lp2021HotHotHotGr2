@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a4d1dd2-b2f9-4a1a-a549-770e92436db1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Vues/Login/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vues/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/gabarit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vues/standard/layout.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/standard/layout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/sass/login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/sass/login.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +59,7 @@
       <recent name="D:\wamp64\www\phpTD\lp2021HotHotHotGr2\Controleurs" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -80,6 +77,7 @@
       <workItem from="1610893710687" duration="2200000" />
       <workItem from="1611040630595" duration="14618000" />
       <workItem from="1611077530946" duration="10935000" />
+      <workItem from="1611221498315" duration="158000" />
     </task>
     <servers />
   </component>

@@ -12,6 +12,7 @@
         <link rel="shortcut icon" href="https://icons.iconarchive.com/icons/iconsmind/outline/512/Temperature-icon.png" type="image/x-icon">
     </head>
     <body class="container-fluid">
+    <?php Vue::montrer('standard/layout'); ?>
             <?php echo $A_vue['body'] ?>
         <?php Vue::montrer('standard/pied'); ?>
         <!-- Javascript -->
