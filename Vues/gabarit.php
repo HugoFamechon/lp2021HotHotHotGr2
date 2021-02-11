@@ -11,11 +11,7 @@
         <link rel="shortcut icon" href="https://icons.iconarchive.com/icons/iconsmind/outline/512/Temperature-icon.png" type="image/x-icon">
     </head>
     <body class="container-fluid">
-            <?php echo $A_vue['body'] ?>
+        <?php echo $A_vue['body'] ?>
         <?php Vue::montrer('standard/pied'); ?>
-        <!-- Javascript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-        <script src="../Assets/lib/notie.min.js"></script>
-        <script src="../Assets/js/script.js"></script>
     </body>
 </html>

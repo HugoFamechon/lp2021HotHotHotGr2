@@ -21,19 +21,19 @@
   <component name="ChangeListManager">
     <list default="true" id="6a4d1dd2-b2f9-4a1a-a549-770e92436db1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/Assets/css/notie.css" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/css/notie.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/css/style.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/sass/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controleurs/ControleurDocumentation.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controleurs/ControleurDocumentation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vues/Documentation/documentation.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/Documentation/documentation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vues/Documentation/framework/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/Documentation/framework/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database.json" beforeDir="false" afterPath="$PROJECT_DIR$/Database.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Noyau/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/Noyau/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vues/Documentation/framework/constantes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/Documentation/framework/constantes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vues/Documentation/framework/controleur.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/Documentation/framework/controleur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vues/Documentation/framework/vue.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/Documentation/framework/vue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vues/Home/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/Home/home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vues/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/gabarit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vues/standard/layout.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/standard/layout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vues/standard/pied.php" beforeDir="false" afterPath="$PROJECT_DIR$/Vues/standard/pied.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/js/script.js" afterDir="false" />
-
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +72,7 @@
       <recent name="D:\wamp64\www\phpTD\lp2021HotHotHotGr2\Controleurs" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -90,11 +90,16 @@
       <workItem from="1610893710687" duration="2200000" />
       <workItem from="1611040630595" duration="14618000" />
       <workItem from="1611077530946" duration="10935000" />
+      <workItem from="1612855759658" duration="728000" />
+      <workItem from="1612861358623" duration="801000" />
+      <workItem from="1612862378661" duration="318000" />
+      <workItem from="1612973868037" duration="15000" />
+      <workItem from="1613030008605" duration="29000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
