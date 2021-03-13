@@ -1,4 +1,3 @@
-<?php Vue::montrer('standard/layout'); ?>
 <main id="home" class="row">
     <!-- Les différentes sections (Aujourdhui, Semaine, Graph) -->
     <!-- Aujourd'hui -->

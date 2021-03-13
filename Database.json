@@ -1,94 +1,89 @@
 {
-  "DB_TABLES": [
-    "UserTable",
-    "Sensors",
-    "SensorsData"
-  ],
-  "DB_TABLES_FIELDS": [
-    [
-      {
-        "FieldName": "UserID",
-        "FieldType": "INT NOT NULL AUTO_INCREMENT",
-        "PK": true
-      },
-      {
-        "FieldName": "Nom",
-        "FieldType": "VARCHAR(100) NOT NULL",
-        "PK": false
-      },
-      {
-        "FieldName": "Prenom",
-        "FieldType": "VARCHAR(100) NOT NULL",
-        "PK": false
-      },
-      {
-        "FieldName": "email",
-        "FieldType": "VARCHAR(100) NOT NULL",
-        "PK": false
-      },
-      {
-        "FieldName": "Password",
-        "FieldType": "VARCHAR(100) NOT NULL",
-        "PK": false
-      },
-      {
-        "FieldName": "ProfilePic",
-        "FieldType": "VARCHAR(100) NULL",
-        "PK": false
-      }
+    "DB_TABLES": [
+        "UserTable",
+        "Sensors",
+        "SensorsData"
     ],
-    [
-      {
-        "FieldName": "SensorID",
-        "FieldType": "INT NOT NULL AUTO_INCREMENT",
-        "PK": true
-      },
-      {
-        "FieldName": "Name",
-        "FieldType": "VARCHAR(100) NOT NULL",
-        "PK": false
-      },
-      {
-        "FieldName": "Type",
-        "FieldType": "VARCHAR(100) NOT NULL",
-        "PK": false
-      },
-      {
-        "FieldName": "Unit",
-        "FieldType": "VARCHAR(100) NOT NULL",
-        "PK": false
-      },
-      {
-        "FieldName": "Location",
-        "FieldType": "VARCHAR(100) NOT NULL",
-        "PK": false
-      }
-    ],
-    [
-      {
-        "FieldName": "UserID",
-        "FieldType": "INT NOT NULL",
-        "PK": true,
-        "ForeignKeyTable": "User",
-        "ForeignKey": "UserID"
-      },
-      {
-        "FieldName": "SensorID",
-        "FieldType": "INT NOT NULL",
-        "PK": true,
-        "ForeignKeyTable": "Sensors",
-        "ForeignKey": "SensorID"
-      },
-      {
-        "FieldName": "Date",
-        "FieldType": "DATE NOT NULL",
-        "PK": true
-      },
-      {
-        "FieldName": "Value",
-        "FieldType": "VARCHAR(100) NOT NULL",
-        "PK": false
-      }
+    "DB_TABLES_FIELDS": [
+        [
+            {
+                "FieldName": "UserID",
+                "FieldType": "INT NOT NULL AUTO_INCREMENT",
+                "PK": true
+            },
+            {
+                "FieldName": "Nom",
+                "FieldType": "VARCHAR(100) NOT NULL",
+                "PK": false
+            },
+            {
+                "FieldName": "Prenom",
+                "FieldType": "VARCHAR(100) NOT NULL",
+                "PK": false
+            },
+            {
+                "FieldName": "email",
+                "FieldType": "VARCHAR(100) NOT NULL",
+                "PK": false
+            },
+            {
+                "FieldName": "Password",
+                "FieldType": "VARCHAR(100) NOT NULL",
+                "PK": false
+            }
+        ],
+        [
+            {
+                "FieldName": "SensorID",
+                "FieldType": "INT NOT NULL AUTO_INCREMENT",
+                "PK": true
+            },
+            {
+                "FieldName": "Name",
+                "FieldType": "VARCHAR(100) NOT NULL",
+                "PK": false
+            },
+            {
+                "FieldName": "Type",
+                "FieldType": "VARCHAR(100) NOT NULL",
+                "PK": false
+            },
+            {
+                "FieldName": "Unit",
+                "FieldType": "VARCHAR(100) NOT NULL",
+                "PK": false
+            },
+            {
+                "FieldName": "Location",
+                "FieldType": "VARCHAR(100) NOT NULL",
+                "PK": false
+            }
+        ],
+        [
+            {
+                "FieldName": "UserID",
+                "FieldType": "INT NOT NULL",
+                "PK": true,
+                "ForeignKeyTable": "UserTable",
+                "ForeignKey": "UserID"
+            },
+            {
+                "FieldName": "SensorID",
+                "FieldType": "INT NOT NULL",
+                "PK": true,
+                "ForeignKeyTable": "Sensors",
+                "ForeignKey": "SensorID"
+            },
+            {
+                "FieldName": "Timestamp",
+                "FieldType": "int NOT NULL",
+                "PK": true
+            },
+            {
+                "FieldName": "Value",
+                "FieldType": "VARCHAR(100) NOT NULL",
+                "PK": false
+            }
+        ]
     ]
-  ]
 }

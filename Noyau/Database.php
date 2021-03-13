@@ -41,6 +41,10 @@ final class Database {
     }
 
     public function createDB() {
+//        echo "CREATE DATABASE IF NOT EXISTS `$this->db`;
+//                CREATE USER '$this->user'@'$this->host' IDENTIFIED BY '$this->pass';
+//                GRANT ALL ON `$this->db`.* TO '$this->user'@'$this->host';
+//                FLUSH PRIVILEGES;";
         $this->pdo->exec("CREATE DATABASE IF NOT EXISTS `$this->db`;
                 CREATE USER '$this->user'@'$this->host' IDENTIFIED BY '$this->pass';
                 GRANT ALL ON `$this->db`.* TO '$this->user'@'$this->host';
@@ -132,14 +136,15 @@ final class Database {
             if(isset($Field["ForeignKeyTable"]))
             {
                 if($nbFKCount === $nbFK-1){
-                    $FK = $FK . "FOREIGN KEY (" . $Field["ForeignKey"] . ") REFERENCES " . $Field["ForeignKeyTable"] . "(" . $Field["ForeignKey"] .")";
+                    $FK = $FK . "CONSTRAINT FK_". $TableName . "_" . $Field["ForeignKeyTable"] . "_" . $Field["ForeignKey"] . " FOREIGN KEY (" . $Field["ForeignKey"] . ") REFERENCES " . $Field["ForeignKeyTable"] . "(" . $Field["ForeignKey"] .")";
                 } else {
-                    $FK = $FK . "FOREIGN KEY (" . $Field["ForeignKey"] . ") REFERENCES " . $Field["ForeignKeyTable"] . "(" . $Field["ForeignKey"] ."), ";
+                    $FK = $FK . "CONSTRAINT FK_". $TableName . "_" . $Field["ForeignKeyTable"] . "_" . $Field["ForeignKey"] . " FOREIGN KEY (" . $Field["ForeignKey"] . ") REFERENCES " . $Field["ForeignKeyTable"] . "(" . $Field["ForeignKey"] ."), ";
                 }
                 $nbFKCount++;
             }
         }
-        $request = "CREATE TABLE IF NOT EXISTS " . "$this->db." . $TableName . "(" . $ParsedFields . $PK . $FK . ");";
+
+        $request = "CREATE TABLE IF NOT EXISTS " . "$this->db." . $TableName . "(" . $ParsedFields . $PK . $FK . ") ENGINE=InnoDB;";
 //        echo "<p>$request</p>";
         $this->pdo->exec($request);
     }
@@ -150,27 +155,46 @@ final class Database {
                 $request = "INSERT INTO $this->db.$tableName (";
 
                 $iterations = count($this->DB_tableFields[array_search($tableName, $this->DB_tables)]);
-
-                // Pour ne pas qu'il prennent en compte les clès en auto increment
+                var_dump($iterations);
+                // Pour ne pas qu'il prennent en compte les tables qui possèdent plusieurs clés primaires
                 $onlyOnce = true;
+                $countPK = 0;
+                foreach ($this->DB_tableFields[array_search($tableName, $this->DB_tables)] as $field) {
+                    if ($field["PK"] === true) {
+                        $countPK++;
+                    }
+                }
+
+                if($countPK > 1) {
+                    $onlyOnce = false;
+                }
+//                var_dump($onlyOnce);
+                // Pour ne pas qu'il prennent en compte les clès en auto increment
+                echo array_search($tableName, $this->DB_tables);
+                var_dump($this->DB_tableFields[array_search($tableName, $this->DB_tables)]);
                 foreach ($this->DB_tableFields[array_search($tableName, $this->DB_tables)] as $fieldName) {
                     if (in_array($this->AutoIncrementPrimaryKeys, $fieldName) && $onlyOnce) {
                         $iterations--;
                     }
                 }
+                var_dump($iterations);
 
-                echo "<p>Iteration = $iterations</p>";
+//                echo "<p>Iteration = $iterations</p>";
                 $i = 0;
                 foreach ($this->DB_tableFields[array_search($tableName, $this->DB_tables)] as $fieldName) {
-                    if(!in_array($this->AutoIncrementPrimaryKeys, $fieldName)) {
-                        if ($i === $iterations)
-                        {
+//                    var_dump($fieldName["FieldName"]);
+                    if(!in_array($this->AutoIncrementPrimaryKeys, $fieldName) || !$onlyOnce) {
+                        if ($i === $iterations - 1 ) {
                             $request = $request . $fieldName["FieldName"];
                         } else {
                             $request = $request . $fieldName["FieldName"] . ",";
                         }
+                        var_dump($fieldName["FieldName"]);
+                        var_dump($iterations);
+                        var_dump($i);
+                        $i++;
                     }
-                    $i++;
+
                 }
 
                 $request = $request . ") VALUES (";
@@ -187,8 +211,38 @@ final class Database {
                 }
 
                 $request = $request . ");";
-                echo "<p>$request</p>";
+//                echo "<p>$request</p>";
                 $this->pdo->exec($request);
+            } catch (PDOException $e) {
+                var_dump($e->getMessage());
+                var_dump($request);
+                throw new PDOException($e->getMessage(), (int)$e->getCode());
+            }
+        } else {
+            throw new Exception("IL N'EXISTE PAS DE TABLE $tableName DANS LA BDD");
+        }
+
+    }
+
+    public function SelectQuery($tableName, array $Fields) {
+        // SELECT $FIELDS FROM $TABLENAME
+        if (in_array($tableName, $this->DB_tables)) {
+            try {
+
+                $request = "SELECT ";
+                $i = 0;
+                $length = count($Fields);
+                foreach ($Fields as $field) {
+                    if ($i == $length - 1) {
+                        $request = $request . $field . " ";
+                    } else {
+                        $request = $request . $field . ",";
+                    }
+                    $i++;
+                }
+                $request = $request . "FROM $this->db.$tableName;";
+//                echo "<p>$request</p>";
+                return $this->pdo->query($request);
             } catch (PDOException $e) {
                 var_dump($e->getMessage());
                 throw new PDOException($e->getMessage(), (int)$e->getCode());
