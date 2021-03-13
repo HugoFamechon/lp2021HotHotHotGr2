@@ -94,11 +94,19 @@
         <section class="d-flex align-items-center flex-lg-column flex-xl-column flex-md-row  flex-sm-column flex-column justify-content-between col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6">
             <p class="titlePanel">Paramètres</p>
         </section>
+        <section>
+            <a href="/documentation">Documentation</a>
+        <section>
         <section class="d-flex align-items-center flex-lg-column flex-xl-column flex-md-row flex-sm-column flex-column justify-content-between col-10 col-sm-10 col-md-10 col-lg-6 col-xl-6">
             <p class="titlePanel">Informations</p>
          </section>
     </main>
 </section>
 
+
+<!-- JQuery -->
+<?php Vue::montrer('standard/script'); ?>
+<!-- Home page Javascript -->
+<?php Vue::montrer('Home/script'); ?>
 
 

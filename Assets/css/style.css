@@ -13,7 +13,6 @@
 }
 
 body {
-  background: #fff;
   min-height: 100vh;
   box-sizing: border-box;
   padding-top: 10vh;
@@ -24,9 +23,17 @@ body {
   margin: 0 0;
 }
 
+p {
+  margin-bottom: 0 !important;
+}
+
 /**
-* Main navigation
-*/
+ * Main navigation
+ */
+.container-fluid {
+  padding-top: 0;
+}
+
 #mainNav {
   display: flex;
   justify-content: space-between;
@@ -34,18 +41,22 @@ body {
   height: 10vh;
   z-index: 10;
 }
+
 #mainNav .headerlink {
   height: 50px;
   width: 50px;
 }
+
 #mainNav #logout a img {
   height: 50px;
   width: 50px;
 }
+
 #mainNav #account a img {
   height: 50px;
   width: 50px;
 }
+
 #mainNav h1 {
   color: #fff;
   font-family: "Red Hat Display";
@@ -55,22 +66,24 @@ body {
 }
 
 /**
-* Tabs
-*/
+ * Tabs
+ */
 #home .tabs {
   display: flex;
   flex-wrap: wrap;
 }
+
 #home .tabs label {
   order: 1;
   display: block;
   padding: 1rem 2rem;
   margin-right: 0.2rem;
   cursor: pointer;
-  background: #F1E9DF;
+  background: #e7e4e0;
   font-weight: bold;
   transition: background ease 1s;
 }
+
 #home .tabs .tab {
   order: 99;
   flex-grow: 1;
@@ -78,66 +91,81 @@ body {
   height: 60vh;
   display: none !important;
   padding: 0;
-  background: #F1E9DF;
+  background: #e7e4e0;
 }
-#home .tabs input[type=radio] {
+
+#home .tabs input[type="radio"] {
   display: none;
 }
-#home .tabs input[type=radio]:checked + label {
+
+#home .tabs input[type="radio"]:checked + label {
   background: #c1c1c1;
 }
-#home .tabs input[type=radio]:checked + label + .tab {
+
+#home .tabs input[type="radio"]:checked + label + .tab {
   display: block !important;
 }
+
 #home .mainpanel {
   height: 60vh;
 }
+
 #home h4 {
   font-size: 30px;
 }
+
 #home .inside {
   height: 60vh;
   width: 49.5%;
   padding: 0 !important;
   margin: 0 !important;
 }
+
 #home .scission {
   min-width: 0.5% !important;
   background-color: #fff !important;
 }
+
 #home .inout {
   height: 75% !important;
   width: 100%;
   text-align: center;
   padding: 1em 1em;
 }
+
 #home .col {
   padding: 0 !important;
   margin: 0 !important;
 }
+
 #home .col-6 {
   padding: 0 !important;
   margin: 0 !important;
 }
+
 #home .col-xl-12 {
   flex: 0 0 75% !important;
   padding: 0 !important;
   margin: 0 !important;
 }
+
 #home .row {
   padding: 0 !important;
   margin: 0 !important;
 }
+
 #home .inout img {
   width: 60px;
   height: 60px;
 }
+
 #home .outside {
   height: 60vh;
   width: 49.5%;
   padding: 0 !important;
   margin: 0 !important;
 }
+
 #home .tempe {
   display: flex;
   flex-direction: reverse;
@@ -145,13 +173,15 @@ body {
   align-items: center;
   padding-right: 2em;
 }
+
 #home .tempe p {
   font-size: 90px;
   margin: 15px;
 }
+
 #home .bandeau {
   color: #fff;
-  background: #227AFF;
+  background: #227aff;
   padding: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
@@ -162,29 +192,34 @@ body {
   flex: 0 0 25% !important;
   overflow: hidden;
 }
+
 #home .bandeau {
   font-size: 30px;
   font-weight: bold;
 }
+
 #home .bandeau img {
   width: 5%;
   margin: 15px;
 }
+
 #home .bandeauout {
   background-image: url(../img/97505-OL22GP-745.jpg);
   background-size: cover;
   background-position: bottom;
 }
+
 #home #thirdTab {
   position: relative;
   right: -58.5%;
 }
+
 @media (max-width: 992px) {
   #home h4 {
     font-size: 20px !important;
   }
   #home .tabs .tab,
-#home .tabs label {
+  #home .tabs label {
     order: initial;
   }
   #home .tabs label {
@@ -250,6 +285,7 @@ body {
     font-size: 25px !important;
   }
 }
+
 @media (max-width: 576px) {
   #home .fl-table {
     font-size: 40px !important;
@@ -259,16 +295,19 @@ body {
     right: 0px !important;
   }
 }
+
 #home .graph {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 #home .table-wrapper {
   margin: 10px 70px 70px;
   box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
 }
+
 #home .fl-table {
   border-radius: 5px;
   font-size: 75px;
@@ -281,25 +320,30 @@ body {
   white-space: nowrap;
   background-color: white;
 }
+
 #home .fl-table td,
 #home .fl-table th {
   text-align: center;
   padding: 0;
 }
+
 #home .fl-table td {
   border-right: 1px solid #f8f8f8;
   font-size: 60px;
 }
+
 #home .fl-table thead th {
   color: #ffffff;
-  background: #4FC3A1;
+  background: #4fc3a1;
 }
+
 #home .fl-table thead th:nth-child(odd) {
   color: #ffffff;
   background: #324960;
 }
+
 #home .fl-table tr:nth-child(even) {
-  background: #F8F8F8;
+  background: #f8f8f8;
 }
 
 #panel_above {
@@ -315,8 +359,6 @@ body {
   width: 100vw;
   height: 100vh;
   background: rgba(255, 255, 255, 0.95);
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
   transition: all 1s ease;
 }
 
@@ -348,9 +390,108 @@ body {
 .constantes h1 {
   text-align: center;
 }
+
 .constantes img {
   display: flex;
   justify-content: center;
 }
 
+.constantes p {
+  margin-bottom: 0 !important;
+}
+
+#docHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#titleDoc {
+  margin-top: 4vh;
+}
+
+.tabs-doc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -43%);
+  width: 80vw;
+  height: 80vh;
+  padding: 30px 20px;
+  background: #e7e4e0;
+  box-shadow: 5px 5px 10px 5px #ccc;
+  overflow: hidden;
+}
+
+.tabs-doc .tab-header {
+  float: left;
+  width: 180px;
+  height: 100%;
+  border-right: 1px solid #ccc;
+  padding: 50px 0px;
+}
+
+.tabs-doc .tab-header > div {
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.tabs-doc .tab-header > div:hover,
+.tabs-doc .tab-header > div.active {
+  color: #00acee;
+}
+
+.tabs-doc .tab-header div i {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.tabs-doc .tab-content {
+  position: relative;
+  height: 100%;
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+}
+
+.tabs-doc .tab-content > div > i {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: #555;
+  color: #f5f5f5;
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+}
+
+.tabs-doc .tab-content > div {
+  position: absolute;
+  text-align: center;
+  padding: 40px 20px;
+  top: -200%;
+  transition: all 500ms ease-in-out;
+}
+
+.tabs-doc .tab-content > div.active {
+  top: 0px;
+}
+
+.tabs-doc .tab-indicator {
+  position: absolute;
+  width: 4px;
+  height: 50px;
+  background: #00acee;
+  left: 198px;
+  top: 80px;
+  transition: all 500ms ease-in-out;
+}
 /*# sourceMappingURL=style.css.map */

@@ -6,11 +6,9 @@
   text-align: center;
   width: 100%;
   z-index: 2147483647;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -o-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
   -ms-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
@@ -90,15 +88,13 @@
 .notie-element-half {
   display: inline-block;
   width: 50%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .notie-element-third {
   display: inline-block;
   width: 33.3333%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .notie-alert {
@@ -114,22 +110,17 @@
   padding: 10px;
   text-align: center;
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .notie-select-choice-repeated {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .notie-date-selector-inner {
   margin: 0 auto;
   max-width: 900px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
 }
@@ -139,7 +130,6 @@
 }
 
 .notie-date-selector-up {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 /*# sourceMappingURL=notie.css.map */

@@ -1,7 +1,7 @@
-<section class="constantes">
+<section class="constantes d-flex justify-content-center align-self align-items-center flex-wrap">
     <h1>Constantes.php</h1>
     <p>On se trouve dans la classe Constantes</p>
-    <img src="../../../Assets/img/constantes_Chemins.PNG">
+    <img class="w-50" src="../../../Assets/img/constantes_Chemins.PNG">
     <p>On crée des constantes de nos différents chemins</p>
     <img src="../../../Assets/img/contante_racine.png">
     <p>Permet de nous placer à la racine de notre application</p>
