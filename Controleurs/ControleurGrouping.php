@@ -1,8 +1,8 @@
 <?php
 
-
 final class ControleurGrouping
 {
+    
     public function defautAction()
     {
         if(isset($_GET['DisplayGroups'])){
