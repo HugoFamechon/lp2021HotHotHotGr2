@@ -155,7 +155,7 @@ final class Database {
                 $request = "INSERT INTO $this->db.$tableName (";
 
                 $iterations = count($this->DB_tableFields[array_search($tableName, $this->DB_tables)]);
-
+                var_dump($iterations);
                 // Pour ne pas qu'il prennent en compte les tables qui possèdent plusieurs clés primaires
                 $onlyOnce = true;
                 $countPK = 0;
@@ -170,12 +170,14 @@ final class Database {
                 }
 //                var_dump($onlyOnce);
                 // Pour ne pas qu'il prennent en compte les clès en auto increment
+                echo array_search($tableName, $this->DB_tables);
+                var_dump($this->DB_tableFields[array_search($tableName, $this->DB_tables)]);
                 foreach ($this->DB_tableFields[array_search($tableName, $this->DB_tables)] as $fieldName) {
                     if (in_array($this->AutoIncrementPrimaryKeys, $fieldName) && $onlyOnce) {
                         $iterations--;
                     }
                 }
-//                var_dump($iterations);
+                var_dump($iterations);
 
 //                echo "<p>Iteration = $iterations</p>";
                 $i = 0;
@@ -187,10 +189,12 @@ final class Database {
                         } else {
                             $request = $request . $fieldName["FieldName"] . ",";
                         }
-//                        var_dump($fieldName["FieldName"]);
-//                        var_dump($iterations);
+                        var_dump($fieldName["FieldName"]);
+                        var_dump($iterations);
+                        var_dump($i);
+                        $i++;
                     }
-                    $i++;
+
                 }
 
                 $request = $request . ") VALUES (";
