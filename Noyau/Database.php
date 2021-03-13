@@ -156,24 +156,39 @@ final class Database {
 
                 $iterations = count($this->DB_tableFields[array_search($tableName, $this->DB_tables)]);
 
-                // Pour ne pas qu'il prennent en compte les clès en auto increment
+                // Pour ne pas qu'il prennent en compte les tables qui possèdent plusieurs clés primaires
                 $onlyOnce = true;
+                $countPK = 0;
+                foreach ($this->DB_tableFields[array_search($tableName, $this->DB_tables)] as $field) {
+                    if ($field["PK"] === true) {
+                        $countPK++;
+                    }
+                }
+
+                if($countPK > 1) {
+                    $onlyOnce = false;
+                }
+//                var_dump($onlyOnce);
+                // Pour ne pas qu'il prennent en compte les clès en auto increment
                 foreach ($this->DB_tableFields[array_search($tableName, $this->DB_tables)] as $fieldName) {
                     if (in_array($this->AutoIncrementPrimaryKeys, $fieldName) && $onlyOnce) {
                         $iterations--;
                     }
                 }
+//                var_dump($iterations);
 
 //                echo "<p>Iteration = $iterations</p>";
                 $i = 0;
                 foreach ($this->DB_tableFields[array_search($tableName, $this->DB_tables)] as $fieldName) {
-                    if(!in_array($this->AutoIncrementPrimaryKeys, $fieldName)) {
-                        if ($i === $iterations)
-                        {
+//                    var_dump($fieldName["FieldName"]);
+                    if(!in_array($this->AutoIncrementPrimaryKeys, $fieldName) || !$onlyOnce) {
+                        if ($i === $iterations - 1 ) {
                             $request = $request . $fieldName["FieldName"];
                         } else {
                             $request = $request . $fieldName["FieldName"] . ",";
                         }
+//                        var_dump($fieldName["FieldName"]);
+//                        var_dump($iterations);
                     }
                     $i++;
                 }
@@ -196,6 +211,7 @@ final class Database {
                 $this->pdo->exec($request);
             } catch (PDOException $e) {
                 var_dump($e->getMessage());
+                var_dump($request);
                 throw new PDOException($e->getMessage(), (int)$e->getCode());
             }
         } else {
