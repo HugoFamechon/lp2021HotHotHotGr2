@@ -43,7 +43,7 @@
                 <label><b>Confirm Password</b></label>
                 <input type="password" placeholder="Confirmer Mot de Passe" id="pwd2" name="pwd2" required>
                 <p id="message" style="color: red; display: none;"></p>
-                <button class="animate action-button blue" type="submit">Submit</button>
+                <button class="animate action-button blue" type="submit">Valider</button>
             </form>
         </section>
     </section>
