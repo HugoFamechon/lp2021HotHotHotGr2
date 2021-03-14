@@ -35,9 +35,10 @@
                                 $moy = $moy + $result['Value'];
                                 $i++;
                             }
-                            $moy = $moy / ($i);
+
                             if ($i > 0)
                             {
+                                $moy = $moy / ($i);
                                 echo '<h4>Max : ' . $max . '° / Min : ' . $min . '° / Moy : ' . number_format( $moy , 1) . '°</h4>';
                             } else {
                                 echo '<h4>no data in db or not logged in</h4>';
