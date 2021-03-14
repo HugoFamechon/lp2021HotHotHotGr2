@@ -1,0 +1,1 @@
+<?php echo $A_vue['message'];?>

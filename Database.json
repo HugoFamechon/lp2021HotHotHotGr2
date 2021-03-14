@@ -5,8 +5,7 @@
         "SensorsData"
     ],
     "DB_TABLES_FIELDS": [
-        [
-            {
+        [{
                 "FieldName": "UserID",
                 "FieldType": "INT NOT NULL AUTO_INCREMENT",
                 "PK": true
@@ -32,8 +31,7 @@
                 "PK": false
             }
         ],
-        [
-            {
+        [{
                 "FieldName": "SensorID",
                 "FieldType": "INT NOT NULL AUTO_INCREMENT",
                 "PK": true
@@ -59,8 +57,7 @@
                 "PK": false
             }
         ],
-        [
-            {
+        [{
                 "FieldName": "UserID",
                 "FieldType": "INT NOT NULL",
                 "PK": true,
