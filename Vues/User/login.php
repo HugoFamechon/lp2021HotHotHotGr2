@@ -4,11 +4,11 @@
    
         <section id="loginForm">
             <form id="contentForm" action="" method="post">
-                <label for="uname"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
+                <label><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" id="email" name="email" required>
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" id="pwd" name="pwd" required>
 
                 <button id="login" class="animate action-button blue" type="submit">Login</button>
                 <label>
@@ -17,7 +17,7 @@
                 <label id="ou"><b>Ou</b></label>
 
                 <label><b>Pas encore inscrit ?</b></label>
-                <a href="/inscription" id="inscription" class="animate action-button blue" type="submit">Je m'inscris</a>
+                <a href="/user/inscription" id="inscription" class="animate action-button blue">Je m'inscris</a>
             </form>
         </section>
     </section>

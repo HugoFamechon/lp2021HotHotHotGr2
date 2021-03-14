@@ -1,5 +1,15 @@
 <?php Vue::montrer('standard/layout'); ?>
 <main id="home" class="row">
+<?php
+session_start();  
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    //session has not started
+    echo '<p>Bienvenue' . $_SESSION['Nom'] . '</p>';
+    
+} else {
+    echo '<p>Se connecter</p>';
+} 
+?>
     <!-- Les différentes sections (Aujourdhui, Semaine, Graph) -->
     <!-- Aujourd'hui -->
     <section class="tabs col ">
