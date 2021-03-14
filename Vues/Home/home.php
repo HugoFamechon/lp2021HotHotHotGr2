@@ -12,6 +12,49 @@
                     <section class="inout d-flex justify-content-around flex-lg-column flex-xl-column flex-md-row flex-sm-row flex-row align-items-center col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
                         <h3>Intérieur</h3>
                         <section id="minMaxIn"></section>
+                        <?php
+                        function displaySensorData($UserIDParam, $SensorIDParam) {
+                            if(!isset($DB))
+                                $DB = new Database();
+                            $queryResult =  $DB->SelectQueryWhere('SensorsData', ['*'], ' WHERE SensorID=' . $SensorIDParam . ' AND UserID=' . $UserIDParam . ';');
+//                        var_dump($queryResult);
+                            $moy = 0;
+                            $i = 0;
+                            foreach ($queryResult as $result) {
+                                if ($i === 0) {
+                                    $min = $result['Value'];
+                                    $max = $result['Value'];
+                                }
+
+                                if (isset($min) && $result['Value'] < $min) {
+                                    $min = $result['Value'];
+                                }
+                                if (isset($max) && $result['Value'] > $max) {
+                                    $max = $result['Value'];
+                                }
+//                            var_dump($result);
+                                $moy = $moy + $result['Value'];
+                                $i++;
+                            }
+
+                            if ($i > 0)
+                            {
+                                $moy = $moy / ($i);
+                                echo '<h4>Max : ' . $max . '° / Min : ' . $min . '° / Moy : ' . number_format( $moy , 1) . '°</h4>';
+                            } else {
+                                echo '<h4>no data in db or not logged in</h4>';
+                            }
+                        }
+                        if(session_id() == '' || !isset($_SESSION)) {
+                            // session isn't started
+                            session_start();
+                        }
+                        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+                            displaySensorData($_SESSION['UserID'], 1);
+                        } else {
+                            displaySensorData(1, 1);
+                        }
+                        ?>
                         <!-- <h4>Max : 35° / Min : 14°</h4> -->
                         <section class="tempe">
                             <img src="../../Assets/img/thermometer.png" alt="Thermomètre">
@@ -27,6 +70,14 @@
                     <section class="inout d-flex justify-content-around flex-lg-column flex-xl-column flex-md-row flex-sm-row flex-row align-items-center col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
                         <h3>Extérieur</h3>
                         <section id="minMaxOut"></section>
+                        <?php
+                        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+                            displaySensorData($_SESSION['UserID'], 2);
+                        } else {
+                            displaySensorData(1, 2);
+                        }
+
+                        ?>
                         <section class="tempe">
                             <img src="../../Assets/img/thermometer.png" alt="Thermomètre">
                         </section>
