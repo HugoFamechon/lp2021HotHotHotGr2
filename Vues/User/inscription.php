@@ -14,6 +14,7 @@
             //session has not started
         ?> 
             <li><a id="connexion" href="/user/logout">Deconnexion</a></li>
+            <li><a id="connexion" href="/documentation">Documentation</a></li>
         <?php } else {
         ?>
             <li><a id="connexion" href="/user/login">Déja inscrit ?</a></li>

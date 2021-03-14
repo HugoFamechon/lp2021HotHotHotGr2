@@ -13,6 +13,7 @@
         <input type="checkbox" id="drop" />
         <ul class="menu">
             <li><a id="connexion" href="/user/logout">Deconnexion</a></li>
+            <li><a id="connexion" href="/documentation">Documentation</a></li>
         <?php }    
         ?>
         </ul>
