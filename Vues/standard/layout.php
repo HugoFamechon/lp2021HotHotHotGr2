@@ -13,6 +13,7 @@
         ?> 
             <li><a id="connexion" href="/user/logout">Deconnexion</a></li>
             <li><a id="connexion" href="/documentation">Documentation</a></li>
+            <li><a id="connexion" href="/sensor">Sensor</a></li>
         <?php } else {
         ?>
             <li><a id="connexion" href="/user/login">Connexion</a></li>

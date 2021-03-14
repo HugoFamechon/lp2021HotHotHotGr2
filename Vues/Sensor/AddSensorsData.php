@@ -1,5 +1,40 @@
-<h1>Sensor/AddSensors</h1>
+<nav>
+    <a id="logo" href="/">HoHohot</a>
+        <label for="drop" class="toggle">Menu</label>
+        <input type="checkbox" id="drop" />
+        <ul class="menu">
+        <?php
+        if(session_id() == '' || !isset($_SESSION)) {
+            // session isn't started
+            session_start();
+        }
+        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+            //session has not started
+        ?> 
+            <li><a id="connexion" href="/user/logout">Deconnexion</a></li>
+            <li><a id="connexion" href="/documentation">Documentation</a></li>
+            <li><a id="connexion" href="/sensor">Sensor</a></li>
+        <?php } else {
+        ?>
+            <li><a id="connexion" href="/user/login">Connexion</a></li>
+            <li><a id="connexion" href="/documentation">Documentation</a></li>
+        <?php }    
+        ?>
+        </ul>
+</nav>
 <?php
-echo $A_vue['Sensors'];
-echo $A_vue['SensorsData'];
+    if(session_id() == '' || !isset($_SESSION)) {
+        // session isn't started
+        session_start();
+    }
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        //session has not started
+    ?>
+        <h1>Sensor/AddSensors</h1>
+    <?php  
+    echo $A_vue['Sensors'];
+    echo $A_vue['SensorsData'];  
+    }else {
+        echo '<h1 style="color:red;">Veuillez-vous connecter afin d\'avoir accés à cette fonctionnalité</h1>';
+    }   
 ?>
