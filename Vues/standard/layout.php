@@ -1,10 +1,21 @@
-<nav id="mainNav">
-        <section class="headerlink" id="logout">
-            <a href="/user/logout"><img src="../../Assets/img/logout.png"></a>
-        </section>
-        <a href="/"><h1>météo</h1></a>
-        <a href="/documentation"><h1>documentation</h1></a>
-        <section class="headerlink" id="account">
-            <a href="/user/login"><img src="../../Assets/img/account.png"></a>
-        </section>
+<nav>
+    <a id="logo" href="/">HoHohot</a>
+        <label for="drop" class="toggle">Menu</label>
+        <input type="checkbox" id="drop" />
+        <ul class="menu">
+        <?php
+        if(session_id() == '' || !isset($_SESSION)) {
+            // session isn't started
+            session_start();
+        }
+        if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+            //session has not started
+        ?> 
+            <li><a id="connexion" href="/user/logout">Deconnexion</a></li>
+        <?php } else {
+        ?>
+            <li><a id="connexion" href="/user/login">Connexion</a></li>
+        <?php }    
+        ?>
+        </ul>
 </nav>

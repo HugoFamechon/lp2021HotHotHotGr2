@@ -43,14 +43,7 @@ final class User
         $this->loadDB();
         $tableName = 'UserTable';
         $users = $this->db->SelectQuery($tableName, ['*']);
-        var_dump($users);
         foreach ($users as $user) {
-            echo '-------------------------------------------------' . "<br>";
-            echo $user['email'] . "<br>";
-            echo $email . "<br>";
-            echo $pwd . "<br>";
-            echo  $user['Password'] . "<br>";
-            echo '-------------------------------------------------';
             if($user['email'] === $email)
             {  
                 if(password_verify($pwd,$user['Password']))
