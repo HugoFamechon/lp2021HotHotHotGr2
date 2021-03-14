@@ -10,7 +10,7 @@
             <section class="mainpanel justify-content-around col d-flex ">
                 <section class="inside d-flex align-items-center flex-lg-column flex-xl-column flex-md-row flex-sm-row flex-row justify-content-between col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <section class="inout d-flex justify-content-around flex-lg-column flex-xl-column flex-md-row flex-sm-row flex-row align-items-center col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
-                        <h3>Inside</h3>
+                        <h3>Intérieur</h3>
                         <section id="minMaxIn"></section>
                         <!-- <h4>Max : 35° / Min : 14°</h4> -->
                         <section class="tempe">
@@ -25,7 +25,7 @@
                 <section class="scission flex-xl-column col d-none d-sm-none d-md-none d-lg-block d-xl-block"></section>
                 <section class="outside d-flex align-items-center flex-lg-column flex-xl-column flex-md-row flex-sm-row flex-row flex-row justify-content-between col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                     <section class="inout d-flex justify-content-around flex-lg-column flex-xl-column flex-md-row flex-sm-row flex-row align-items-center col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
-                        <h3>Outside</h3>
+                        <h3>Extérieur</h3>
                         <section id="minMaxOut"></section>
                         <section class="tempe">
                             <img src="../../Assets/img/thermometer.png" alt="Thermomètre">

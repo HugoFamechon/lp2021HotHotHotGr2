@@ -16,6 +16,7 @@
         <?php } else {
         ?>
             <li><a id="connexion" href="/user/login">Connexion</a></li>
+            <li><a id="connexion" href="/documentation">Documentation</a></li>
         <?php }    
         ?>
         </ul>

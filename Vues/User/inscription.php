@@ -18,6 +18,7 @@
         <?php } else {
         ?>
             <li><a id="connexion" href="/user/login">Déja inscrit ?</a></li>
+            <li><a id="connexion" href="/documentation">Documentation</a></li>
         <?php }    
         ?>
         </ul>
@@ -27,19 +28,19 @@
             <form id="contentForm" action="" onsubmit="return CheckPassWords();" method="post" enctype="multipart/form-data">
             <h1>Inscription</h1>
                 <label><b>Name</b></label>
-                <input type="text" placeholder="Enter Name" name="name" required>
+                <input type="text" placeholder="Entrer Nom" name="name" required>
 
                 <label><b>FirstName</b></label>
-                <input type="text" placeholder="Enter FirstName" name="firstname" required>
+                <input type="text" placeholder="Entrer Prenom" name="firstname" required>
 
                 <label><b>Email</b></label>
-                <input type="email" placeholder="Enter Email" name="email" required>
+                <input type="email" placeholder="Entrer Email" name="email" required>
 
                 <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" id="pwd1" name="pwd1" required>
+                <input type="password" placeholder="Entrer Mot de Passe" id="pwd1" name="pwd1" required>
 
                 <label><b>Confirm Password</b></label>
-                <input type="password" placeholder="Confirm Password" id="pwd2" name="pwd2" required>
+                <input type="password" placeholder="Confirmer Mot de Passe" id="pwd2" name="pwd2" required>
                 <p id="message" style="color: red; display: none;"></p>
                 <button class="animate action-button blue" type="submit">Submit</button>
             </form>

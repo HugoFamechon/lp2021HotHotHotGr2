@@ -1,6 +1,9 @@
 <main id="mainLogin">
 <nav>
     <a id="logo" href="/">HoHohot</a>
+        <label for="drop" class="toggle">Menu</label>
+        <input type="checkbox" id="drop" />
+        <ul class="menu">
         <?php
         if(session_id() == '' || !isset($_SESSION)) {
             // session isn't started
@@ -9,10 +12,10 @@
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
             //session has not started
         ?> 
-        <label for="drop" class="toggle">Menu</label>
-        <input type="checkbox" id="drop" />
-        <ul class="menu">
             <li><a id="connexion" href="/user/logout">Deconnexion</a></li>
+            <li><a id="connexion" href="/documentation">Documentation</a></li>
+        <?php } else {
+        ?>
             <li><a id="connexion" href="/documentation">Documentation</a></li>
         <?php }    
         ?>
@@ -24,10 +27,10 @@
             <form id="contentForm" action="" method="post">
                 <h1>Connexion</h1>
                 <label><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" id="email" name="email" required>
+                <input type="text" placeholder="Entrer Email" id="email" name="email" required>
 
-                <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" id="pwd" name="pwd" required>
+                <label><b>Mot de Passe</b></label>
+                <input type="password" placeholder="Entrer Mot de Passe" id="pwd" name="pwd" required>
 
                 <button id="login" class="animate action-button blue" type="submit">Login</button>
                
