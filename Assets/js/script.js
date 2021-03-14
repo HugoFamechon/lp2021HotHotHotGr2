@@ -50,7 +50,7 @@ function getXMLHttpRequest() {
 function LireFichierJSON(pathJson) {
     var xhr = getXMLHttpRequest();
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
             alerte = JSON.parse(xhr.responseText);
         }
@@ -59,9 +59,16 @@ function LireFichierJSON(pathJson) {
     xhr.send(null);
 }
 
-let pathJsonData = "Assets/json/data.json";
-LireFichierJSON(pathJsonData);
-processData(alerte);
+let pathJsonData = "https://cors-anywhere.herokuapp.com/https://hothothot.dog/api/capteurs/";
+
+setInterval(function() { 
+    LireFichierJSON(pathJsonData);
+    processData(alerte);
+ }, 3000);
+
+processAlert(tempIn, tempOut);
+
+
 
 // ----------------------- //
 // Event pour charger les  //
@@ -69,7 +76,7 @@ processData(alerte);
 // ----------------------- //
 
 let tabTwo = document.querySelector("#tabWeek");
-tabTwo.addEventListener("click", function(e) {
+tabTwo.addEventListener("click", function (e) {
     console.log(' Event clicked ! ');
     loadWeekData(e);
 });
@@ -150,42 +157,20 @@ function processAlert(tempInterieur, tempExterieur) {
 
 function processData(jsonObj) {
 
-    tempIn = jsonObj['temperature'][0]['current'];
-    tempOut = jsonObj['temperature'][1]['current'];
 
-    processAlert(tempIn, tempOut);
-
+    tempIn = jsonObj['capteurs'][0]['Valeur'];
+    tempOut = jsonObj['capteurs'][1]['Valeur'];
 
 
-    var jsonInOut = jsonObj['temperature'];
+    console.log('tempIn :>> ', tempIn);
 
-    for (var i = 0; i < jsonInOut.length; i++) {
-
-        let divParentIn = document.querySelector("#minMaxIn");
-        let divParentOut = document.querySelector("#minMaxOut");
-        let divTempeIn = document.querySelector(".inside .inout .tempe");
-        let divTempeOut = document.querySelector(".outside .inout .tempe");
-
-
-        let tempInText = document.createElement('p');
-        let tempMaxMinText = document.createElement('h4');
-
-
-        tempInText.textContent = jsonInOut[i].current + "°";
-        tempMaxMinText.textContent = "Min : " + jsonInOut[i].min + "° / Max : " + jsonInOut[i].max + "°";
-
-        if (i == 0) {
-            divTempeIn.appendChild(tempInText);
-            divParentIn.append(tempMaxMinText)
-        } else {
-            divTempeOut.appendChild(tempInText);
-            divParentOut.append(tempMaxMinText)
-        }
-
-    }
-
+    $('#temperatureInt').html(tempIn + '°');
+    $('#temperatureExt').html(tempOut + '°');
 
 }
+
+
+
 
 
 

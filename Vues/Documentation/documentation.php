@@ -4,23 +4,20 @@
   <li><a href="/documentation/framework/Controleur">Controleur</a></li>
   <li><a href="/documentation/framework/Vue">Vue</a></li>
 </ul> -->
+<a href=".." id="home-doc">Accueil</a>
 <div id="docHeader">
     <h1 id="titleDoc">Documentation</h1>
 </div>
 <div class="tabs-doc">
     <div class="tab-header">
-        <div class="active">
-            <i class="fa fa-code"></i> Chargement Auto
-        </div>
-        <div>
-            <i class="fa fa-pencil-square"></i> Constantes
-        </div>
-        <div>
-            <i class="fa fa-bar-chart"></i> Controleur
-        </div>
-        <div>
-            <i class="fa fa-envelope"></i> Vue
-        </div>
+        <h3>Framework MVC</h3>
+        <div class="frameworkTabs active"> Chargement Auto</div>
+        <div class="frameworkTabs">Constantes</div>
+        <div class="frameworkTabs">Controleur</div>
+        <div class="frameworkTabs">Vue</div>
+        <h3 id="PartieMetierTabs">Partie metier</h3>
+        <div class="frameworkMetier">Page d'accueil</div>
+        <div class="frameworkMetier">Compte</div>
     </div>
     <div class="tab-indicator"></div>
     <div class="tab-content">
@@ -79,7 +76,20 @@
 
             <p>Localise la vue .php à afficher<br>On initialise un sous-tampon</p>
         </div>
+        <div>
+            <h2>Page d'accueil</h2>
+            <p>Voici la page d'accueil. Elle permet d'avoir une vue d'ensemble sur les donnees de vos capteurs.</p>
 
+            <img class="img-fluid" src="../../../Assets/img/pagedaccueil.png">
+        </div>
+        <div>
+            <h2>Compte utilisateur</h2>
+            <h3>Creer son compte</h3>
+
+            <h3>Se connecter</h3>
+            <p>Remplir les champs correspondants a vos identifiants.</p>
+            <img class="img-fluid" src="../../../Assets/img/login.png">
+        </div>
     </div>
 </div>
 

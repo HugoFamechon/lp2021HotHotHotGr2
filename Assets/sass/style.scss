@@ -75,6 +75,13 @@ p {
  * Tabs
  */
 
+ footer {
+   position: absolute;
+   top: 110vh;
+   left: calc(50vw - (643px / 2));
+ }
+
+
 #home {
   .tabs {
     display: flex;
@@ -406,9 +413,12 @@ p {
 
 
 #docHeader {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #e7e4e0;
+  z-index: 10;
 }
 
 #titleDoc {
@@ -420,13 +430,29 @@ p {
   top:50%;
   left:50%;
   transform:translate(-50%,-43%);
-  width:80vw;
-  height:80vh;
+  width:100vw;
+  height:100vh;
   padding:30px 20px;
   background:#e7e4e0;
   box-shadow:5px 5px 10px 5px #ccc;
   overflow:hidden;
+
+
+  h2 {
+    margin: 10px 20px;
+  }
+
+  p {
+    margin: 10px 20px;
+  }
 }
+
+#home-doc {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
 .tabs-doc .tab-header {
   float:left;
   width:180px;
@@ -458,6 +484,15 @@ p {
   overflow:scroll;
   display: flex;
   justify-content: center;
+
+  div {
+
+    img {
+      max-width: 60vw;
+      max-height: 70vh;
+    }
+  }
+
 }
 .tabs-doc .tab-content > div > i {
   display:inline-block;
@@ -477,6 +512,7 @@ p {
   padding:40px 20px;
   top:-200%;
   transition:all 500ms ease-in-out;
+
 }
 .tabs-doc .tab-content > div.active {
   top:0px;
@@ -488,6 +524,16 @@ p {
   height:50px;
   background:#00acee;
   left:198px;
-  top:80px;
+  top:110px;
   transition:all 500ms ease-in-out;
 }
+
+.tab-header {
+  h3 {
+    font-size: 20px !important;
+  }
+
+  #PartieMetierTabs {
+    margin-top: 20px;
+  }
+} 

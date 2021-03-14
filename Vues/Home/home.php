@@ -11,10 +11,10 @@
                     <section class="inout d-flex justify-content-around flex-lg-column flex-xl-column flex-md-row flex-sm-row flex-row align-items-center col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
                         <h3>Inside</h3>
                         <section id="minMaxIn"></section>
-                        <!-- <h4>Max : 35° / Min : 14°</h4> -->
+                        <h4>Max : 35° / Min : 14°</h4>
                         <section class="tempe">
                             <img src="../../Assets/img/thermometer.png" alt="Thermomètre">
-                            <!-- <p>15°</p> -->
+                            <p id="temperatureInt">15°</p>
                         </section>
                     </section>
                     <section class="bandeau d-flex text-center justify-content-center align-items-center col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
@@ -28,6 +28,7 @@
                         <section id="minMaxOut"></section>
                         <section class="tempe">
                             <img src="../../Assets/img/thermometer.png" alt="Thermomètre">
+                            <p id="temperatureExt">22°</p>
                         </section>
                     </section>
                     <section class="bandeau bandeauout d-flex align-items-center justify-content-center flex-lg-row flex-xl-row flex-md-rocolumnw flex-sm-column flex-column col-6 col-sm-12 col-md-12 col-lg-12 col-xl-12">
